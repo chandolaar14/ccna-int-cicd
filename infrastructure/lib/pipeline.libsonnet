@@ -36,7 +36,7 @@ local settings = import '../../settings.json';
             version: '1',
             owner: 'AWS',
             configuration: {
-              ProjectName: 'test',
+              ProjectName: '${aws_codebuild_project.build.name}',
             },
             input_artifacts: [ 'source' ]
           }],
