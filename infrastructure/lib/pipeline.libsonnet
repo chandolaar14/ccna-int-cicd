@@ -38,7 +38,21 @@ local settings = import '../../settings.json';
             configuration: {
               ProjectName: '${aws_codebuild_project.build.name}',
             },
-            input_artifacts: [ 'source' ]
+            input_artifacts: [ 'source' ],
+            output_artifacts: [ 'buildPackage' ],
+          }],
+        },{
+          name: 'Test',
+          action: [{
+            name: 'Functional',
+            category: 'Test',
+            provider: 'CodeBuild',
+            version: '1',
+            owner: 'AWS',
+            configuration: {
+              ProjectName: '${aws_codebuild_project.functional_test.name}',
+            },
+            input_artifacts: [ 'buildPackage' ],
           }],
         }],
       },

@@ -3,8 +3,8 @@ local settings = import '../../settings.json';
 {
   resource: {
     aws_codebuild_project: {
-      build: {
-        name: settings.projectName + '-build',
+      functional_test: {
+        name: settings.projectName + '-functional-test',
         service_role: '${aws_iam_role.codebuild.arn}',
         environment: [{
           compute_type: 'BUILD_GENERAL1_SMALL',
@@ -13,7 +13,7 @@ local settings = import '../../settings.json';
         }],
         source: [{
           type: 'CODEPIPELINE',
-          buildspec: 'buildspec-build.yml',
+          buildspec: 'buildspec-functional-tests.yml',
         }],
         artifacts: [{
           type: 'CODEPIPELINE',
