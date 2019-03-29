@@ -1,0 +1,11 @@
+{
+  "projectName": "df2",
+  "tfState": {
+    "bucket": "tfstate.aws.beauknowssoftware.com",
+    "region": "us-east-2",
+  },
+  "accountId": 659025572181,
+  "deployRoleARN": "arn:aws:iam::659025572181:role/Deployment",
+  "region": "us-east-2",
+  "s3Suffix": "beau.bks.aws.beauknowssoftware.com",
+}
