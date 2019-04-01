@@ -25,7 +25,10 @@ local resourceName = import 'resourceName.libsonnet';
             'codecommit:Get*',
             'codecommit:*Archive*',
           ],
-          resources: ['${aws_codecommit_repository.code.arn}'],
+          resources: [
+            '${aws_codecommit_repository.platform.arn}',
+            '${aws_codecommit_repository.instance.arn}',
+          ],
         },{
           actions: [
             's3:*',

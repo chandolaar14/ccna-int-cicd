@@ -1,12 +1,11 @@
-local settings = import '../../settings.json';
-
-{
-  resource: {
-    aws_codecommit_repository: {
-      code: {
-        repository_name: settings.projectName,
-        default_branch: 'master',
+function(key, name)
+  {
+    resource: {
+      aws_codecommit_repository: {
+        [key]: {
+          repository_name: name,
+          default_branch: 'master',
+        },
       },
     },
-  },
-}
+  }

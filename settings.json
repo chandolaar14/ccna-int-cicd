@@ -1,5 +1,6 @@
 {
   "projectName": "df2",
+  "instanceName": "beau",
   "tfState": {
     "bucket": "tfstate.aws.beauknowssoftware.com",
     "region": "us-east-2",
