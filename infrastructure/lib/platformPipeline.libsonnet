@@ -45,5 +45,14 @@ pipeline(
       },
       input_artifacts: [ 'buildPackage' ],
     }],
+  },{
+    name: 'Approval',
+    action: [{
+      name: 'Approval',
+      category: 'Approval',
+      provider: 'Manual',
+      version: 1,
+      owner: 'AWS',
+    }],
   }],
 )
