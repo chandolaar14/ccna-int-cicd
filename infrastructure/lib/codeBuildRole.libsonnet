@@ -28,13 +28,21 @@ local settings = import '../../settings.json';
           ],
         }, {
           actions: [
-            's3:ListBucket',
+            's3:Multi',
             's3:GetObject',
             's3:PutObject',
           ],
           resources: [
             '${data.aws_s3_bucket.tfstate.arn}',
             '${data.aws_s3_bucket.tfstate.arn}/*',
+          ],
+        }, {
+          actions: [
+            's3:*',
+          ],
+          resources: [
+            '${aws_s3_bucket.release.arn}',
+            '${aws_s3_bucket.release.arn}/*',
           ],
         }, {
           actions: [ 'sts:AssumeRole' ],

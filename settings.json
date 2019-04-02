@@ -8,7 +8,7 @@
   "accountId": 659025572181,
   "deployRoleARN": "arn:aws:iam::659025572181:role/Deployment",
   "region": "us-east-2",
-  "s3Suffix": "beau.bks.aws.beauknowssoftware.com",
+  "s3Suffix": "deployment.aws.beauknowssoftware.com",
   "assumableRoles": [
     "arn:aws:iam::183124014589:role/Deployment"
   ]

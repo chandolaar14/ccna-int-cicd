@@ -51,8 +51,21 @@ pipeline(
       name: 'Approval',
       category: 'Approval',
       provider: 'Manual',
-      version: 1,
+      version: '1',
       owner: 'AWS',
+    }],
+  },{
+    name: 'Deliver',
+    action: [{
+      name: 'Deliver',
+      category: 'Build',
+      provider: 'CodeBuild',
+      version: '1',
+      owner: 'AWS',
+      configuration: {
+        ProjectName: '${aws_codebuild_project.deliver.name}',
+      },
+      input_artifacts: [ 'buildPackage' ],
     }],
   }],
 )

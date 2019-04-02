@@ -36,6 +36,8 @@ local resourceName = import 'resourceName.libsonnet';
           resources: [
             '${aws_s3_bucket.artifact_store.arn}',
             '${aws_s3_bucket.artifact_store.arn}/*',
+            '${aws_s3_bucket.release.arn}',
+            '${aws_s3_bucket.release.arn}/*',
           ],
         }],
       },
