@@ -28,7 +28,7 @@ local settings = import '../../settings.json';
           ],
         }, {
           actions: [
-            's3:Multi',
+            's3:ListBucket',
             's3:GetObject',
             's3:PutObject',
           ],
