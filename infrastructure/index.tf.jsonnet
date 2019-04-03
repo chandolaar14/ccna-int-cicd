@@ -7,8 +7,10 @@ local artifactStore = import 'lib/artifactStore.libsonnet';
 local platformRepository = import 'lib/platformRepository.libsonnet';
 local instanceRepository = import 'lib/instanceRepository.libsonnet';
 local buildStage = import 'lib/buildStage.libsonnet';
+local instanceBuildStage = import 'lib/instanceBuildStage.libsonnet';
 local deliverStage = import 'lib/deliverStage.libsonnet';
-local qaStage = import 'lib/qaStage.libsonnet';
+local qaPlanStage = import 'lib/qaPlanStage.libsonnet';
+local qaDeployStage = import 'lib/qaDeployStage.libsonnet';
 local functionalTestStage = import 'lib/functionalTestStage.libsonnet';
 local codeBuildRole = import 'lib/codeBuildRole.libsonnet';
 local pipelineRole = import 'lib/pipelineRole.libsonnet';
@@ -23,8 +25,10 @@ merge([
   platformRepository,
   instanceRepository,
   buildStage,
+  instanceBuildStage,
   deliverStage,
-  qaStage,
+  qaPlanStage,
+  qaDeployStage,
   functionalTestStage,
   codeBuildRole,
   platformPipeline,

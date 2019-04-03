@@ -4,8 +4,8 @@ local buildImage = import 'buildImage.libsonnet';
 {
   resource: {
     aws_codebuild_project: {
-      build: {
-        name: settings.projectName + '-build',
+      instance_build: {
+        name: settings.instanceName + '-' + settings.projectName + '-build',
         service_role: '${aws_iam_role.codebuild.arn}',
         environment: [{
           compute_type: 'BUILD_GENERAL1_SMALL',

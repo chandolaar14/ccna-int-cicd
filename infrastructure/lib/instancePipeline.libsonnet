@@ -19,17 +19,53 @@ pipeline(
       output_artifacts: [ 'source' ]
     }],
   },{
-    name: 'QA',
+    name: 'Build',
     action: [{
-      name: 'QA',
+      name: 'Build',
       category: 'Build',
       provider: 'CodeBuild',
       version: '1',
       owner: 'AWS',
       configuration: {
-        ProjectName: '${aws_codebuild_project.qa.name}',
+        ProjectName: '${aws_codebuild_project.instance_build.name}',
       },
       input_artifacts: [ 'source' ],
+      output_artifacts: [ 'buildPackage' ],
+    }],
+  },{
+    name: 'QA_Plan',
+    action: [{
+      name: 'QA_Plan',
+      category: 'Build',
+      provider: 'CodeBuild',
+      version: '1',
+      owner: 'AWS',
+      configuration: {
+        ProjectName: '${aws_codebuild_project.qa_plan.name}',
+      },
+      input_artifacts: [ 'buildPackage' ],
+    }],
+  },{
+    name: 'QA_Approval',
+    action: [{
+      name: 'QA_Approval',
+      category: 'Approval',
+      provider: 'Manual',
+      version: '1',
+      owner: 'AWS',
+    }],
+  },{
+    name: 'QA_Deploy',
+    action: [{
+      name: 'QA_Deploy',
+      category: 'Build',
+      provider: 'CodeBuild',
+      version: '1',
+      owner: 'AWS',
+      configuration: {
+        ProjectName: '${aws_codebuild_project.qa_deploy.name}',
+      },
+      input_artifacts: [ 'buildPackage' ],
     }],
   }],
 )

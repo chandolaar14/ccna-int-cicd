@@ -4,8 +4,8 @@ local buildImage = import 'buildImage.libsonnet';
 {
   resource: {
     aws_codebuild_project: {
-      build: {
-        name: settings.projectName + '-build',
+      qa_plan: {
+        name: settings.instanceName + '-' + settings.projectName + '-qa-plan',
         service_role: '${aws_iam_role.codebuild.arn}',
         environment: [{
           compute_type: 'BUILD_GENERAL1_SMALL',
@@ -14,7 +14,7 @@ local buildImage = import 'buildImage.libsonnet';
         }],
         source: [{
           type: 'CODEPIPELINE',
-          buildspec: 'buildspec-build.yml',
+          buildspec: 'buildspec-qa-plan.yml',
         }],
         artifacts: [{
           type: 'CODEPIPELINE',

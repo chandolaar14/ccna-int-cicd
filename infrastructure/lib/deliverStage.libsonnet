@@ -1,4 +1,5 @@
 local settings = import '../../settings.json';
+local buildImage = import 'buildImage.libsonnet';
 
 {
   resource: {
@@ -9,7 +10,7 @@ local settings = import '../../settings.json';
         environment: [{
           compute_type: 'BUILD_GENERAL1_SMALL',
           type: 'LINUX_CONTAINER',
-          image: 'beauknowssoftware/builder:1.0.2',
+          image: buildImage,
         }],
         source: [{
           type: 'CODEPIPELINE',
