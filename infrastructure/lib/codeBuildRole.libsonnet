@@ -5,7 +5,7 @@ local settings = import '../../settings.json';
   data: {
     aws_s3_bucket: {
       tfstate: {
-        bucket: 'tfstate.aws.beauknowssoftware.com',
+        bucket: settings.tfState.bucket,
       },
     },
     aws_iam_policy_document: {
@@ -44,10 +44,14 @@ local settings = import '../../settings.json';
             '${aws_s3_bucket.release.arn}',
             '${aws_s3_bucket.release.arn}/*',
           ],
-        }, {
-          actions: [ 'sts:AssumeRole' ],
-          resources: settings.assumableRoles,
-        }],
+        }] + (
+          if std.length(settings.assumableRoles) == 0
+          then []
+          else [{
+            actions: [ 'sts:AssumeRole' ],
+          	resources: settings.assumableRoles,
+          }]
+        )
       },
       codebuild_assume: {
         statement: [{
