@@ -9,7 +9,9 @@
   "region": "us-east-1",
   "s3Suffix": "deployment.webmethods.candid.ninja",
   "accountId": "273850774494",
-  "assumableRoles": []
+  "assumableRoles": [
+    "arn:aws:iam::273850774494:role/data-fabric-deploy"
+  ]
 }
 
 
