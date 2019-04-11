@@ -16,6 +16,7 @@ local codeBuildRole = import 'lib/codeBuildRole.libsonnet';
 local pipelineRole = import 'lib/pipelineRole.libsonnet';
 local platformPipeline = import 'lib/platformPipeline.libsonnet';
 local instancePipeline = import 'lib/instancePipeline.libsonnet';
+local platformFailureAlertTopic = import 'lib/platformFailureAlertTopic.libsonnet';
 
 merge([
   backend('infrastructure'),
@@ -34,4 +35,5 @@ merge([
   platformPipeline,
   instancePipeline,
   pipelineRole,
+  platformFailureAlertTopic,
 ])
