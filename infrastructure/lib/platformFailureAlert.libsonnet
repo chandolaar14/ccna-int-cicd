@@ -46,9 +46,10 @@ local resourceName = import 'resourceName.libsonnet';
         arn: '${aws_sns_topic.platform_failure.arn}',
         input_transformer: {
           input_paths: {
-            time: "$.time",
+            time: '$.time',
+            pipeline: '$.detail.pipeline',
           },
-          input_template: '"The df2 pipeline failed at <time>"',
+          input_template: '"The <pipeline> pipeline failed at <time>"',
         },
       },
     },
