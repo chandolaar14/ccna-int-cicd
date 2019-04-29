@@ -21,6 +21,12 @@ local instancePipeline = import 'lib/instancePipeline.libsonnet';
 local testDataPipeline = import 'lib/testDataPipeline.libsonnet';
 local platformFailureAlert = import 'lib/platformFailureAlert.libsonnet';
 
+local demoRepository = import 'lib/demoRepository.libsonnet';
+local demoBuildStage = import 'lib/demoBuildStage.libsonnet';
+local demoPlanStage = import 'lib/demoPlanStage.libsonnet';
+local demoDeployStage = import 'lib/demoDeployStage.libsonnet';
+local demoPipeline = import 'lib/demoPipeline.libsonnet';
+
 merge([
   backend('infrastructure'),
   provider,
@@ -42,4 +48,9 @@ merge([
   testDataPipeline,
   pipelineRole,
   platformFailureAlert,
+  demoRepository,
+  demoBuildStage,
+  demoPlanStage,
+  demoDeployStage,
+  demoPipeline,
 ])
