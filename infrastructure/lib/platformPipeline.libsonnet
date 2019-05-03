@@ -44,6 +44,16 @@ pipeline(
         ProjectName: '${aws_codebuild_project.functional_test.name}',
       },
       input_artifacts: [ 'buildPackage' ],
+    },{
+      name: 'Metaschema',
+      category: 'Test',
+      provider: 'CodeBuild',
+      version: '1',
+      owner: 'AWS',
+      configuration: {
+        ProjectName: '${aws_codebuild_project.metaschema_test.name}',
+      },
+      input_artifacts: [ 'buildPackage' ],
     }],
   },{
     name: 'Approval',

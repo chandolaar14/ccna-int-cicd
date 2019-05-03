@@ -14,6 +14,7 @@ local qaPlanStage = import 'lib/qaPlanStage.libsonnet';
 local qaDeployStage = import 'lib/qaDeployStage.libsonnet';
 local testDataSyncStage = import 'lib/testDataSyncStage.libsonnet';
 local functionalTestStage = import 'lib/functionalTestStage.libsonnet';
+local metaschemaTestStage = import 'lib/metaschemaTestStage.libsonnet';
 local codeBuildRole = import 'lib/codeBuildRole.libsonnet';
 local pipelineRole = import 'lib/pipelineRole.libsonnet';
 local platformPipeline = import 'lib/platformPipeline.libsonnet';
@@ -42,6 +43,7 @@ merge([
   qaDeployStage,
   testDataSyncStage,
   functionalTestStage,
+  metaschemaTestStage,
   codeBuildRole,
   platformPipeline,
   instancePipeline,
