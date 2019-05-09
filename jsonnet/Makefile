@@ -1,6 +1,5 @@
 SHELL=/bin/bash
 .EXPORT_ALL_VARIABLES:
-.ONESHELL:
 .SHELLFLAGS = -uec
 .PHONY: build clean
 
@@ -15,15 +14,14 @@ go/src/github.com/fatih/color:
 	go get github.com/fatih/color
 
 go/src/github.com/google/go-jsonnet:
-	go get github.com/google/go-jsonnet
+	mkdir -p go/src/github.com/google/go-jsonnet
+	git clone https://github.com/google/go-jsonnet.git go/src/github.com/google/go-jsonnet
+	cd go/src/github.com/google/go-jsonnet && git checkout tags/v0.12.1 && rm -rf .git
 
-dest := go/src/github.com/google/go-jsonnet/jsonnet/jsonnet
+go/src/github.com/google/go-jsonnet/jsonnet/jsonnet: go/src/github.com/fatih/color go/src/github.com/google/go-jsonnet
+	cd go/src/github.com/google/go-jsonnet/jsonnet && go build
 
-go/src/github.com/google/go-jsonnet/cmd/jsonnet/jsonnet: go/src/github.com/fatih/color go/src/github.com/google/go-jsonnet
-	cd go/src/github.com/google/go-jsonnet/cmd/jsonnet
-	go build
-
-jsonnet: go/src/github.com/google/go-jsonnet/cmd/jsonnet/jsonnet
+jsonnet: go/src/github.com/google/go-jsonnet/jsonnet/jsonnet
 	cp $< $@
 build: jsonnet
 
