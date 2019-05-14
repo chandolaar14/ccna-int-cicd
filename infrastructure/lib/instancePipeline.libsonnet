@@ -67,5 +67,40 @@ pipeline(
       },
       input_artifacts: [ 'buildPackage' ],
     }],
+  },{
+    name: 'UAT_Plan',
+    action: [{
+      name: 'UAT_Plan',
+      category: 'Build',
+      provider: 'CodeBuild',
+      version: '1',
+      owner: 'AWS',
+      configuration: {
+        ProjectName: '${aws_codebuild_project.uat_plan.name}',
+      },
+      input_artifacts: [ 'buildPackage' ],
+    }],
+  },{
+    name: 'UAT_Approval',
+    action: [{
+      name: 'UAT_Approval',
+      category: 'Approval',
+      provider: 'Manual',
+      version: '1',
+      owner: 'AWS',
+    }],
+  },{
+    name: 'UAT_Deploy',
+    action: [{
+      name: 'UAT_Deploy',
+      category: 'Build',
+      provider: 'CodeBuild',
+      version: '1',
+      owner: 'AWS',
+      configuration: {
+        ProjectName: '${aws_codebuild_project.uat_deploy.name}',
+      },
+      input_artifacts: [ 'buildPackage' ],
+    }],
   }],
 )
