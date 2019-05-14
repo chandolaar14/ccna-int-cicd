@@ -1,1 +1,1 @@
-'273850774494.dkr.ecr.us-east-1.amazonaws.com/df2-build:1.0.0'
+'362550720160.dkr.ecr.us-west-2.amazonaws.com/int-build:1.0.3'
