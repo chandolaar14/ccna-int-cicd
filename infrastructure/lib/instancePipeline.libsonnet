@@ -102,5 +102,41 @@ pipeline(
       },
       input_artifacts: [ 'buildPackage' ],
     }],
-  }],
+  },{
+    name: 'Prod_Plan_Stage',
+    action: [{
+      name: 'Prod_Plan_Action',
+      category: 'Build',
+      provider: 'CodeBuild',
+      version: '1',
+      owner: 'AWS',
+      configuration: {
+        ProjectName: '${aws_codebuild_project.prod_plan.name}',
+      },
+      input_artifacts: [ 'buildPackage' ],
+    }],
+  },{
+    name: 'Prod_Approval_Stage',
+    action: [{
+      name: 'Prod_Approval_Action',
+      category: 'Approval',
+      provider: 'Manual',
+      version: '1',
+      owner: 'AWS',
+    }],
+  },{
+    name: 'Prod_Deploy_Stage',
+    action: [{
+      name: 'Prod_Deploy_Action',
+      category: 'Build',
+      provider: 'CodeBuild',
+      version: '1',
+      owner: 'AWS',
+      configuration: {
+        ProjectName: '${aws_codebuild_project.prod_deploy.name}',
+      },
+      input_artifacts: [ 'buildPackage' ],
+    }],
+  }
+  ],
 )

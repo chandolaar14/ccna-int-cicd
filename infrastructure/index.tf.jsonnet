@@ -30,6 +30,8 @@ local demoDeployStage = import 'lib/demoDeployStage.libsonnet';
 local demoPipeline = import 'lib/demoPipeline.libsonnet';
 local uatPlanStage = import 'lib/uatPlanStage.libsonnet';
 local uatDeployStage = import 'lib/uatDeployStage.libsonnet';
+local prodPlanStage = import 'lib/prodPlanStage.libsonnet';
+local prodDeployStage = import 'lib/prodDeployStage.libsonnet';
 
 merge([
   backend('infrastructure'),
@@ -46,6 +48,8 @@ merge([
   qaDeployStage,
   uatPlanStage,
   uatDeployStage,
+  prodPlanStage,
+  prodDeployStage,
   testDataSyncStage,
   functionalTestStage,
   metaschemaTestStage,

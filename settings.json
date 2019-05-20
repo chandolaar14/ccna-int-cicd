@@ -11,6 +11,7 @@
   "s3Suffix": "deployment.ccna-int.ccna.info",
   "accountId": "362550720160",
   "assumableRoles": [
-    "arn:aws:iam::362550720160:role/ccna_intsrvc_nonprod_deployment_role"
-  ]
+    "arn:aws:iam::362550720160:role/ccna_intsrvc_nonprod_deployment_role",
+    "arn:aws:iam::855074921823:role/ccna_intsrvc_prod_deployment_role"
+  ],
 }
