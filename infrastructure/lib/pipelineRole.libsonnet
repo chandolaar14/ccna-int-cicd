@@ -1,4 +1,5 @@
 local resourceName = import 'resourceName.libsonnet';
+local tags = import 'tags.libsonnet';
 
 {
   data: {
@@ -56,6 +57,7 @@ local resourceName = import 'resourceName.libsonnet';
       pipeline: {
         name: resourceName('pipeline'),
         assume_role_policy: '${data.aws_iam_policy_document.pipeline_assume.json}',
+        tags: tags(resourceName('pipeline')),
       },
     },
     aws_iam_role_policy: {

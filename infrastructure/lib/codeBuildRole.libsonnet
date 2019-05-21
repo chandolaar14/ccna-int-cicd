@@ -1,5 +1,6 @@
 local resourceName = import 'resourceName.libsonnet';
 local settings = import '../../settings.json';
+local tags = import 'tags.libsonnet';
 
 {
   data: {
@@ -77,6 +78,7 @@ local settings = import '../../settings.json';
       codebuild: {
         name: resourceName('codebuild'),
         assume_role_policy: '${data.aws_iam_policy_document.codebuild_assume.json}',
+        tags: tags(resourceName('codebuild')),
       },
     },
     aws_iam_role_policy: {

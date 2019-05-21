@@ -1,5 +1,6 @@
 local settings = import '../../settings.json';
 local buildImage = import 'buildImage.libsonnet';
+local tags = import 'tags.libsonnet';
 
 {
   resource: {
@@ -19,6 +20,7 @@ local buildImage = import 'buildImage.libsonnet';
         artifacts: [{
           type: 'CODEPIPELINE',
         }],
+        tags: tags(settings.projectName + '-performance-test'),
       },
     },
   },

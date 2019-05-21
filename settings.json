@@ -14,4 +14,6 @@
     "arn:aws:iam::362550720160:role/ccna_intsrvc_nonprod_deployment_role",
     "arn:aws:iam::855074921823:role/ccna_intsrvc_prod_deployment_role"
   ],
+  "applicationCode": "INT",
+  "applicationId": "UID000015224773",
 }
