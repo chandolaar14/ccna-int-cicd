@@ -41,6 +41,14 @@ local settings = import '../../settings.json';
             's3:*',
           ],
           resources: [
+            'arn:aws:s3:::*ccna-int*/*',
+            'arn:aws:s3:::*ccna-int*',
+          ],
+        }, {
+          actions: [
+            's3:*',
+          ],
+          resources: [
             '${aws_s3_bucket.release.arn}',
             '${aws_s3_bucket.release.arn}/*',
           ],
