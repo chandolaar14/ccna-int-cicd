@@ -41,8 +41,8 @@ local settings = import '../../settings.json';
             's3:*',
           ],
           resources: [
-            'arn:aws:s3:::*ccna-int*/*',
-            'arn:aws:s3:::*ccna-int*',
+            'arn:aws:s3:::*' + settings.projectName + '*/*',
+            'arn:aws:s3:::*' + settings.projectName + '*',
           ],
         }, {
           actions: [
