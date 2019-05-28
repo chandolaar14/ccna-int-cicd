@@ -53,6 +53,13 @@ local tags = import 'tags.libsonnet';
             '${aws_s3_bucket.release.arn}',
             '${aws_s3_bucket.release.arn}/*',
           ],
+        }, {
+          actions: [
+            "secretsmanager:GetSecretValue"
+          ],
+          resources: [
+            '${data.aws_secretsmanager_secret.by-arn.arn}'
+          ],
         }] + (
           if std.length(settings.assumableRoles) == 0
           then []

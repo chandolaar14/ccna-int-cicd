@@ -3,10 +3,10 @@ local buildImage = import 'buildImage.libsonnet';
 local tags = import 'tags.libsonnet';
 
 {
-  resource: {
+  data: {
     aws_secretsmanager_secret: {
-      checkmarx_token: {
-        name: 'checkmarx_token'
+      "by-arn": {
+        arn: 'arn:aws:secretsmanager:us-west-2:362550720160:secret:checkmarx-token-Kna7GY'
       }
     }
   }
