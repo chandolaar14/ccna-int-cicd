@@ -15,6 +15,7 @@ local qaPlanStage = import 'lib/qaPlanStage.libsonnet';
 local qaDeployStage = import 'lib/qaDeployStage.libsonnet';
 local testDataSyncStage = import 'lib/testDataSyncStage.libsonnet';
 local functionalTestStage = import 'lib/functionalTestStage.libsonnet';
+local secretsManager = import 'lib/secretsManager.libsonnet';
 local metaschemaTestStage = import 'lib/metaschemaTestStage.libsonnet';
 local performanceTestStage = import 'lib/performanceTestStage.libsonnet';
 local codeBuildRole = import 'lib/codeBuildRole.libsonnet';
@@ -54,6 +55,7 @@ merge([
   testDataSyncStage,
   functionalTestStage,
   checkmarxScanStage,
+  secretsManager,
   metaschemaTestStage,
   performanceTestStage,
   codeBuildRole,
