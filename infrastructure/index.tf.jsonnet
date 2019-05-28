@@ -9,6 +9,7 @@ local instanceRepository = import 'lib/instanceRepository.libsonnet';
 local testDataRepository = import 'lib/testDataRepository.libsonnet';
 local buildStage = import 'lib/buildStage.libsonnet';
 local instanceBuildStage = import 'lib/instanceBuildStage.libsonnet';
+local checkmarxScanStage = import 'lib/checkmarxScanStage.libsonnet';
 local deliverStage = import 'lib/deliverStage.libsonnet';
 local qaPlanStage = import 'lib/qaPlanStage.libsonnet';
 local qaDeployStage = import 'lib/qaDeployStage.libsonnet';
@@ -52,6 +53,7 @@ merge([
   prodDeployStage,
   testDataSyncStage,
   functionalTestStage,
+  checkmarxScanStage,
   metaschemaTestStage,
   performanceTestStage,
   codeBuildRole,
