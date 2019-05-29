@@ -73,8 +73,7 @@ pipeline(
       configuration: {
         ProjectName: '${aws_codebuild_project.checkmarx_scan.name}',
       },
-      input_artifacts: [ 'source' ],
-      output_artifacts: [ 'scan.xml' ],
+      input_artifacts: [ 'source' ]
   }],
   },{
     name: 'Approval',
