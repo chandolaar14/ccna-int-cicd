@@ -60,6 +60,14 @@ local tags = import 'tags.libsonnet';
           resources: [
             '${data.aws_secretsmanager_secret.by-arn.arn}'
           ],
+        }, {
+         actions: [
+           "kms:*"
+         ],
+         resources: [
+           "arn:aws:kms:us-west-2:362550720160:key/1f4dd8ef-3bca-4f5e-aaae-c039ee3a8cfd",
+           "arn:aws:kms:us-east-1:362550720160:key/3d718e09-819b-4331-9795-2cc633526354"
+         ],
         }] + (
           if std.length(settings.assumableRoles) == 0
           then []
