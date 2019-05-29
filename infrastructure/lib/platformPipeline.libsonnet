@@ -33,19 +33,6 @@ pipeline(
       output_artifacts: [ 'buildPackage' ],
     }],
   },{
-    name: 'Checkmarx_Scan',
-    action: [{
-      name: 'Checkmarx_Scan',
-      category: 'Build',
-      provider: 'CodeBuild',
-      version: '1',
-      owner: 'AWS',
-      configuration: {
-        ProjectName: '${aws_codebuild_project.checkmarx_scan.name}',
-      },
-      input_artifacts: [ 'source' ]
-    }],
-  },{
     name: 'Test',
     action: [{
       name: 'Functional',
@@ -77,7 +64,18 @@ pipeline(
         ProjectName: '${aws_codebuild_project.performance_test.name}',
       },
       input_artifacts: [ 'buildPackage' ],
-    }],
+    },{
+      name: 'Checkmarx_Scan',
+      category: 'Test',
+      provider: 'CodeBuild',
+      version: '1',
+      owner: 'AWS',
+      configuration: {
+        ProjectName: '${aws_codebuild_project.checkmarx_scan.name}',
+      },
+      input_artifacts: [ 'source' ],
+      output_artifacts: [ 'scan.xml' ],
+  }],
   },{
     name: 'Approval',
     action: [{
