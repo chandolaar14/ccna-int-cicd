@@ -35,6 +35,9 @@ local uatDeployStage = import 'lib/uatDeployStage.libsonnet';
 local prodPlanStage = import 'lib/prodPlanStage.libsonnet';
 local prodDeployStage = import 'lib/prodDeployStage.libsonnet';
 
+local transferServerRepository = import 'lib/transferServerRepository.libsonnet';
+
+
 merge([
   backend('infrastructure'),
   provider,
@@ -69,4 +72,5 @@ merge([
   demoPlanStage,
   demoDeployStage,
   demoPipeline,
+  transferServerRepository,
 ])
