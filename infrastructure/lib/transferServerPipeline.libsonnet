@@ -3,7 +3,7 @@ local pipeline = import 'pipeline.libsonnet';
 
 pipeline(
   key = 'transfer_server',
-  name = settings.projectName + '-transfer-serer',
+  name = settings.projectName + '-transfer-server',
   stages = [{
     name: 'Source',
     action: [{
