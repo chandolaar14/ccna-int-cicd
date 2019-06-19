@@ -36,6 +36,8 @@ local prodPlanStage = import 'lib/prodPlanStage.libsonnet';
 local prodDeployStage = import 'lib/prodDeployStage.libsonnet';
 
 local transferServerRepository = import 'lib/transferServerRepository.libsonnet';
+local transferServerDeployStage = import 'lib/transferServerDeployStage.libsonnet';
+local transferServerPipeline = import 'lib/transferServerPipeline.libsonnet';
 
 
 merge([
@@ -73,4 +75,6 @@ merge([
   demoDeployStage,
   demoPipeline,
   transferServerRepository,
+  transferServerDeployStage,
+  transferServerPipeline,
 ])
