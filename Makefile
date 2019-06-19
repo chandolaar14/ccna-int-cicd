@@ -28,6 +28,4 @@ clean:
 	${RM} $$(cat ./.gitignore)
 
 	# clean each cleanable subdirectory
-	for folder in ${CLEAN_DIRS}; do
-		${SUB_MAKE} $$folder clean
-	done
+	for folder in ${CLEAN_DIRS}; do ${SUB_MAKE} $$folder clean ; done
