@@ -39,6 +39,14 @@ local transferServerRepository = import 'lib/transferServerRepository.libsonnet'
 local transferServerDeployStage = import 'lib/transferServerDeployStage.libsonnet';
 local transferServerPipeline = import 'lib/transferServerPipeline.libsonnet';
 
+local platformDeployRepository = import 'lib/platformDeployRepository.libsonnet';
+local platformDeployBuild = import 'lib/platformDeployBuild.libsonnet';
+local platformDeployQaPlanAction = import 'lib/platformDeployQaPlanAction.libsonnet';
+local platformDeployUatPlanAction = import 'lib/platformDeployUatPlanAction.libsonnet';
+local platformDeployQaDeployAction = import 'lib/platformDeployQaDeployAction.libsonnet';
+local platformDeployUatDeployAction = import 'lib/platformDeployUatDeployAction.libsonnet';
+local platformDeployPipeline = import 'lib/platformDeployPipeline.libsonnet';
+
 
 merge([
   backend('infrastructure'),
@@ -77,4 +85,12 @@ merge([
   transferServerRepository,
   transferServerDeployStage,
   transferServerPipeline,
+
+  platformDeployRepository,
+  platformDeployBuild,
+  platformDeployQaPlanAction,
+  platformDeployUatPlanAction,
+  platformDeployQaDeployAction,
+  platformDeployUatDeployAction,
+  platformDeployPipeline,
 ])
