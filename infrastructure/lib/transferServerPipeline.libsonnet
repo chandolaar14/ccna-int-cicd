@@ -1,9 +1,10 @@
 local settings = import '../../settings.json';
 local pipeline = import 'pipeline.libsonnet';
+local name = settings.projectName + '-transfer-server';
 
 pipeline(
   key = 'transfer_server',
-  name = settings.projectName + '-transfer-server',
+  name = name,
   stages = [{
     name: 'Source',
     action: [{
