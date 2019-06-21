@@ -47,6 +47,8 @@ local platformDeployQaDeployAction = import 'lib/platformDeployQaDeployAction.li
 local platformDeployUatDeployAction = import 'lib/platformDeployUatDeployAction.libsonnet';
 local platformDeployPipeline = import 'lib/platformDeployPipeline.libsonnet';
 
+local migrationUtilsRepository = import 'lib/migrationUtilsRepository.libsonnet';
+
 
 merge([
   backend('infrastructure'),
@@ -93,4 +95,6 @@ merge([
   platformDeployQaDeployAction,
   platformDeployUatDeployAction,
   platformDeployPipeline,
+
+  migrationUtilsRepository,
 ])
