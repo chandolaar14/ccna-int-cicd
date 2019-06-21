@@ -1,3 +1,5 @@
+local settings = import '../../settings.json';
+
 function(key, name, stages)
   {
     resource: {
@@ -13,6 +15,10 @@ function(key, name, stages)
           },
 
           stage: stages,
+          tags: {
+            ApplicationCode: settings.applicationCode,
+            application_id: settings.applicationId, 
+          },
         },
       },
     },
