@@ -16,7 +16,7 @@ local name = settings.projectName + '-platform-deploy' + '-build';
         }],
         source: [{
           type: 'CODEPIPELINE',
-          buildspec: 'buildspec-build.yml',
+          buildspec: 'buildspec.yml',
         }],
         artifacts: [{
           type: 'CODEPIPELINE',
