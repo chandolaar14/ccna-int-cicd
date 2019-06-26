@@ -11,6 +11,7 @@ local buildStage = import 'lib/buildStage.libsonnet';
 local instanceBuildStage = import 'lib/instanceBuildStage.libsonnet';
 local checkmarxScanStage = import 'lib/checkmarxScanStage.libsonnet';
 local deliverStage = import 'lib/deliverStage.libsonnet';
+local platformTagStage = import 'lib/platformTagStage.libsonnet';
 local qaPlanStage = import 'lib/qaPlanStage.libsonnet';
 local qaDeployStage = import 'lib/qaDeployStage.libsonnet';
 local testDataSyncStage = import 'lib/testDataSyncStage.libsonnet';
@@ -61,6 +62,7 @@ merge([
   buildStage,
   instanceBuildStage,
   deliverStage,
+  platformTagStage,
   qaPlanStage,
   qaDeployStage,
   uatPlanStage,

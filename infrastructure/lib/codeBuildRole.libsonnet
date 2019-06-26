@@ -13,6 +13,16 @@ local tags = import 'tags.libsonnet';
       codebuild: {
         statement: [{
           actions: [
+            'codecommit:Get*',
+            'codecommit:List*',
+            'codecommit:Git*',
+          ],
+          resources: [
+            '${aws_codecommit_repository.platform.arn}',
+            '${aws_codecommit_repository.platform.arn}/*',
+          ],
+        }, {
+          actions: [
             'logs:CreateLogGroup',
             'logs:CreateLogStream',
             'logs:PutLogEvents',

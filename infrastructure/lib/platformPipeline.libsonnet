@@ -76,13 +76,18 @@ pipeline(
       input_artifacts: [ 'source' ]
   }],
   },{
-    name: 'Approval',
+    name: 'Tag',
     action: [{
-      name: 'Approval',
-      category: 'Approval',
-      provider: 'Manual',
+      name: 'Tag',
+      category: 'Build',
+      provider: 'CodeBuild',
       version: '1',
       owner: 'AWS',
+      configuration: {
+        ProjectName: '${aws_codebuild_project.platform_tag.name}',
+      },
+      input_artifacts: [ 'buildPackage' ],
+      output_artifacts: [ 'versionedPackage' ],
     }],
   },{
     name: 'Deliver',
@@ -95,7 +100,7 @@ pipeline(
       configuration: {
         ProjectName: '${aws_codebuild_project.deliver.name}',
       },
-      input_artifacts: [ 'buildPackage' ],
+      input_artifacts: [ 'versionedPackage' ],
     }],
   }],
 )
