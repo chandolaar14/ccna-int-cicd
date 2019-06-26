@@ -14,6 +14,9 @@ build-jsonnet:
 	${SUB_MAKE} jsonnet
 CLEAN_DIRS += jsonnet
 
+publish-image: build-jsonnet
+	./scripts/publish-docker.sh
+
 deploy: build-jsonnet
 	# deploy infrastructure
 	${SUB_MAKE} infrastructure deploy

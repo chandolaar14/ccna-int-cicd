@@ -1,0 +1,44 @@
+FROM alpine:3.8
+
+ARG NEW_USER_ID
+RUN adduser -S -u $NEW_USER_ID builder builder
+
+RUN apk add --no-cache make
+RUN apk add --no-cache gcc
+RUN apk add --no-cache g++
+RUN apk add --no-cache go
+RUN apk add --no-cache bash
+RUN apk add --no-cache nodejs
+RUN apk add --no-cache nodejs-npm
+RUN apk add --no-cache git
+RUN apk add --no-cache python py-pip && \
+    pip install awscli
+RUN apk add --no-cache curl unzip && \
+    curl https://releases.hashicorp.com/terraform/0.11.14/terraform_0.11.14_linux_amd64.zip --output /tmp/terraform.zip && \
+    cd /tmp && \
+    unzip terraform.zip && \
+    mv terraform /usr/local/bin && \
+    apk del curl unzip && \
+    rm /tmp/terraform.zip
+RUN apk add --no-cache jq
+RUN apk add --no-cache zip
+RUN apk add --no-cache openssh
+RUN apk add --no-cache outils-md5
+RUN apk add --no-cache curl
+RUN apk add --no-cache openjdk8-jre
+
+RUN mkdir /working && chown builder /working
+
+
+USER builder
+
+WORKDIR /working
+
+RUN curl -LOk https://download.checkmarx.com/8.8.0/Plugins/CxConsolePlugin-8.80.0.zip
+RUN mkdir -p /working/CxConsolePlugin-8.80.0
+RUN chown -R builder /working/CxConsolePlugin-8.80.0
+RUN unzip CxConsolePlugin-8.80.0.zip -d /working
+RUN chmod a+x /working/CxConsolePlugin-8.80.0/runCxConsole.sh
+RUN rm CxConsolePlugin-8.80.0.zip
+
+ENV PATH ~/flyway-5.2.4:/go/bin:$PATH
