@@ -1,4 +1,5 @@
 local settings = import '../../settings.json';
+local tags = import 'tags.libsonnet';
 
 function(key, name, stages)
   {
@@ -15,10 +16,7 @@ function(key, name, stages)
           },
 
           stage: stages,
-          tags: {
-            ApplicationCode: settings.applicationCode,
-            application_id: settings.applicationId, 
-          },
+          tags: tags(name),
         },
       },
     },
