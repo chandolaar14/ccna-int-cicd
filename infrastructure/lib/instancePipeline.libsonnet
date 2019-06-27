@@ -46,15 +46,6 @@ pipeline(
       input_artifacts: [ 'buildPackage' ],
     }],
   },{
-    name: 'QA_Approval',
-    action: [{
-      name: 'QA_Approval',
-      category: 'Approval',
-      provider: 'Manual',
-      version: '1',
-      owner: 'AWS',
-    }],
-  },{
     name: 'QA_Deploy',
     action: [{
       name: 'QA_Deploy',
