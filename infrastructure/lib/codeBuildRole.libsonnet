@@ -13,6 +13,13 @@ local tags = import 'tags.libsonnet';
       codebuild: {
         statement: [{
           actions: [
+            'secretsmanager:GetSecretValue',
+          ],
+          resources: [
+            'arn:aws:secretsmanager:us-west-2:362550720160:secret:ccna-int-admin-api-key-NuYPlk',
+          ],
+        }, {
+          actions: [
             'codecommit:Get*',
             'codecommit:List*',
             'codecommit:Git*',
