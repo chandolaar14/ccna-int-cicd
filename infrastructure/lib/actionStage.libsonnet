@@ -5,7 +5,7 @@ local combined = pipelineTitle + ' ' + stageTitle;
 local lowercase = std.asciiLower(combined);
 local name =  std.strReplace(lowercase, ' ', '_');
 {
-  name: 'Test',
+  name: name,
   action: [
     pipelineAction(pipelineTitle, action.title,
       input = if std.objectHas(action, 'input') then action.input else null,
