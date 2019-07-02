@@ -11,7 +11,7 @@ local platformFailureAlert = import 'lib/platformFailureAlert.libsonnet';
 local migrationUtilsRepository = import 'lib/migrationUtilsRepository.libsonnet';
 
 local demo = import 'lib/demo.libsonnet';
-local instance = import 'lib/instance.libsonnet';
+local migration = import 'lib/migration.libsonnet';
 local platform = import 'lib/platform.libsonnet';
 local platformDeploy = import 'lib/platformDeploy.libsonnet';
 local testData = import 'lib/testData.libsonnet';
@@ -29,7 +29,7 @@ merge([
   migrationUtilsRepository,
 
   demo,
-  instance,
+  migration,
   platform,
   platformDeploy,
   testData,

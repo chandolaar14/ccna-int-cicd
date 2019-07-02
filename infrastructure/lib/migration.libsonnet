@@ -3,34 +3,33 @@ local repository = import 'repository.libsonnet';
 local pipeline = import 'pipeline.libsonnet';
 local codebuild = import 'codebuild.libsonnet';
 local approvalStage = import 'approvalStage.libsonnet';
-local singleActionStage = import 'singleActionStage.libsonnet';
-local postBuildAction = import 'postBuildAction.libsonnet';
-local actionStage = import 'actionStage.libsonnet';
+local postBuildStage = import 'postBuildStage.libsonnet';
 local sourceStage = import 'sourceStage.libsonnet';
 local buildStage = import 'buildStage.libsonnet';
 
-local title = 'Platform Deploy';
+local title = 'Migration';
 
 merge([
-  repository(title, 'Migration Platform Deploy Configuration'),
+  repository(title, 'Migration configuration'),
   pipeline(title,
     stages = [
       sourceStage(title),
       buildStage(title),
-      actionStage(title, 'Plan', [
-        postBuildAction('QA Plan'),
-        postBuildAction('UAT Plan'),
-      ]),
-      approvalStage(),
-      actionStage(title, 'Deploy', [
-        postBuildAction('QA Deploy'),
-        postBuildAction('UAT Deploy'),
-      ]),
+      postBuildStage(title, 'QA Plan'),
+      postBuildStage(title, 'QA Deploy'),
+      postBuildStage(title, 'UAT Plan'),
+      approvalStage('UAT Approval'),
+      postBuildStage(title, 'UAT Deploy'),
+      postBuildStage(title, 'Prod Plan'),
+      approvalStage('Prod Approval'),
+      postBuildStage(title, 'Prod Deploy'),
     ],
   ),
   codebuild(title, 'Build'),
   codebuild(title, 'QA Plan'),
-  codebuild(title, 'UAT Plan'),
   codebuild(title, 'QA Deploy'),
+  codebuild(title, 'UAT Plan'),
   codebuild(title, 'UAT Deploy'),
+  codebuild(title, 'Prod Plan'),
+  codebuild(title, 'Prod Deploy'),
 ])
