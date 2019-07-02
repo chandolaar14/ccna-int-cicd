@@ -19,11 +19,8 @@ local instancePipeline = import 'lib/instancePipeline.libsonnet';
 local testDataPipeline = import 'lib/testDataPipeline.libsonnet';
 local platformFailureAlert = import 'lib/platformFailureAlert.libsonnet';
 
-local demoRepository = import 'lib/demoRepository.libsonnet';
-local demoBuildStage = import 'lib/demoBuildStage.libsonnet';
-local demoPlanStage = import 'lib/demoPlanStage.libsonnet';
-local demoDeployStage = import 'lib/demoDeployStage.libsonnet';
-local demoPipeline = import 'lib/demoPipeline.libsonnet';
+local demo = import 'lib/demo.libsonnet';
+
 local uatPlanStage = import 'lib/uatPlanStage.libsonnet';
 local uatDeployStage = import 'lib/uatDeployStage.libsonnet';
 local prodPlanStage = import 'lib/prodPlanStage.libsonnet';
@@ -43,7 +40,6 @@ merge([
   provider,
   releaseBucket,
   artifactStore,
-  platform,
   instanceRepository,
   testDataRepository,
   instanceBuildStage,
@@ -61,16 +57,12 @@ merge([
   testDataPipeline,
   pipelineRole,
   platformFailureAlert,
-  demoRepository,
-  demoBuildStage,
-  demoPlanStage,
-  demoDeployStage,
-  demoPipeline,
   transferServerRepository,
   transferServerDeployStage,
   transferServerPipeline,
-
-  platformDeploy,
-
   migrationUtilsRepository,
+
+  platform,
+  demo,
+  platformDeploy,
 ])
