@@ -4,6 +4,7 @@ local pipeline = import 'pipeline.libsonnet';
 local codebuild = import 'codebuild.libsonnet';
 local pipelineAction = import 'pipelineAction.libsonnet';
 local sourceAction = import 'sourceAction.libsonnet';
+local approvalAction = import 'approvalAction.libsonnet';
 local settings = import '../../settings.json';
 
 merge([
@@ -32,13 +33,9 @@ merge([
       ],
     },{
       name: 'Demo_Approval',
-      action: [{
-        name: 'Demo_Approval',
-        category: 'Approval',
-        provider: 'Manual',
-        version: '1',
-        owner: 'AWS',
-      }],
+      action: [
+        approvalAction('Demo_Approval'),
+      ],
     },{
       name: 'Demo_Deploy',
       action: [
