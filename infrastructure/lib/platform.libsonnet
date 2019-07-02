@@ -6,6 +6,7 @@ local singleActionStage = import 'singleActionStage.libsonnet';
 local actionStage = import 'actionStage.libsonnet';
 local postBuildAction = import 'postBuildAction.libsonnet';
 local buildStage = import 'buildStage.libsonnet';
+local action = import 'action.libsonnet';
 
 local title = 'Platform';
 
@@ -18,7 +19,7 @@ merge([
         postBuildAction('Functional Tests'),
         postBuildAction('Metaschema Tests'),
         postBuildAction('Performance Tests'),
-        postBuildAction('Checkmarx Scan'),
+        action('Checkmarx Scan', input = 'source'),
       ]),
       singleActionStage(title, 'Tag', input = 'buildPackage', output = 'versionedPackage'),
       singleActionStage(title, 'Deliver', input = 'versionedPackage'),
