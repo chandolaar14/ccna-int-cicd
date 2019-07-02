@@ -49,6 +49,7 @@ merge([
   codebuild('metaschema_test', settings.projectName + '-metaschema-test', 'buildspec-metaschema-tests.yml'),
   codebuild('functional_test', settings.projectName + '-functional-test', 'buildspec-functional-tests.yml'),
   codebuild('performance_test', settings.projectName + '-performance-test', 'buildspec-performance-tests.yml'),
+  codebuild('checkmarx_scan', settings.projectName + '-checkmarkx-scan', 'buildspec-checkmarx-scan.yml'),
   codebuild('platform_tag', settings.projectName + '-tag', 'buildspec-tag.yml'),
   codebuild('deliver', settings.projectName + '-deliver', 'buildspec-deliver.yml'),
 ])
