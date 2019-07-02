@@ -2,6 +2,7 @@ local merge = import 'merge.libsonnet';
 local repository = import 'repository.libsonnet';
 local pipeline = import 'pipeline.libsonnet';
 local codebuild = import 'codebuild.libsonnet';
+local pipelineAction = import 'pipelineAction.libsonnet';
 local settings = import '../../settings.json';
 local buildImage = import 'buildImage.libsonnet';
 local tags = import 'tags.libsonnet';
@@ -31,88 +32,27 @@ merge([
       }],
     },{
       name: 'Build',
-      action: [{
-        name: 'Build',
-        category: 'Build',
-        provider: 'CodeBuild',
-        version: '1',
-        owner: 'AWS',
-        configuration: {
-          ProjectName: '${aws_codebuild_project.build.name}',
-        },
-        input_artifacts: [ 'source' ],
-        output_artifacts: [ 'buildPackage' ],
-      }],
+      action: [
+        pipelineAction('Build', '${aws_codebuild_project.build.name}', 'source', 'buildPackage'),
+      ],
     },{
       name: 'Test',
-      action: [{
-        name: 'Functional',
-        category: 'Test',
-        provider: 'CodeBuild',
-        version: '1',
-        owner: 'AWS',
-        configuration: {
-          ProjectName: '${aws_codebuild_project.functional_test.name}',
-        },
-        input_artifacts: [ 'buildPackage' ],
-      },{
-        name: 'Metaschema',
-        category: 'Test',
-        provider: 'CodeBuild',
-        version: '1',
-        owner: 'AWS',
-        configuration: {
-          ProjectName: '${aws_codebuild_project.metaschema_test.name}',
-        },
-        input_artifacts: [ 'buildPackage' ],
-      },{
-        name: 'Performance',
-        category: 'Test',
-        provider: 'CodeBuild',
-        version: '1',
-        owner: 'AWS',
-        configuration: {
-          ProjectName: '${aws_codebuild_project.performance_test.name}',
-        },
-        input_artifacts: [ 'buildPackage' ],
-      },{
-        name: 'Checkmarx_Scan',
-        category: 'Test',
-        provider: 'CodeBuild',
-        version: '1',
-        owner: 'AWS',
-        configuration: {
-          ProjectName: '${aws_codebuild_project.checkmarx_scan.name}',
-        },
-        input_artifacts: [ 'source' ]
-    }],
+      action: [
+        pipelineAction('Functional', '${aws_codebuild_project.functional_test.name}', 'buildPackage', category = 'Test'),
+        pipelineAction('Metaschema', '${aws_codebuild_project.metaschema_test.name}', 'buildPackage', category = 'Test'),
+        pipelineAction('Performance', '${aws_codebuild_project.performance_test.name}', 'buildPackage', category = 'Test'),
+        pipelineAction('Checkmarx_Scan', '${aws_codebuild_project.checkmarx_scan.name}', 'source', category = 'Test'),
+      ],
     },{
       name: 'Tag',
-      action: [{
-        name: 'Tag',
-        category: 'Build',
-        provider: 'CodeBuild',
-        version: '1',
-        owner: 'AWS',
-        configuration: {
-          ProjectName: '${aws_codebuild_project.platform_tag.name}',
-        },
-        input_artifacts: [ 'buildPackage' ],
-        output_artifacts: [ 'versionedPackage' ],
-      }],
+      action: [
+        pipelineAction('Tag', '${aws_codebuild_project.platform_tag.name}', 'buildPackage', 'versionedPackage'),
+      ],
     },{
       name: 'Deliver',
-      action: [{
-        name: 'Deliver',
-        category: 'Build',
-        provider: 'CodeBuild',
-        version: '1',
-        owner: 'AWS',
-        configuration: {
-          ProjectName: '${aws_codebuild_project.deliver.name}',
-        },
-        input_artifacts: [ 'versionedPackage' ],
-      }],
+      action: [
+        pipelineAction('Deliver', '${aws_codebuild_project.deliver.name}', 'versionedPackage'),
+      ],
     }],
   ),
   codebuild('build', settings.projectName + '-build', 'buildspec-build.yml'),
