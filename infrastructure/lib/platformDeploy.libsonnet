@@ -6,7 +6,6 @@ local approvalStage = import 'approvalStage.libsonnet';
 local singleActionStage = import 'singleActionStage.libsonnet';
 local postBuildAction = import 'postBuildAction.libsonnet';
 local actionStage = import 'actionStage.libsonnet';
-local sourceStage = import 'sourceStage.libsonnet';
 local buildStage = import 'buildStage.libsonnet';
 
 local title = 'Platform Deploy';
@@ -15,7 +14,6 @@ merge([
   repository(title, 'Migration Platform Deploy Configuration'),
   pipeline(title,
     stages = [
-      sourceStage(title),
       buildStage(title),
       actionStage(title, 'Plan', [
         postBuildAction('QA Plan'),

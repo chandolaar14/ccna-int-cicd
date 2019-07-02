@@ -4,7 +4,6 @@ local pipeline = import 'pipeline.libsonnet';
 local codebuild = import 'codebuild.libsonnet';
 local approvalStage = import 'approvalStage.libsonnet';
 local postBuildStage = import 'postBuildStage.libsonnet';
-local sourceStage = import 'sourceStage.libsonnet';
 local buildStage = import 'buildStage.libsonnet';
 
 local title = 'Migration';
@@ -13,7 +12,6 @@ merge([
   repository(title, 'Migration configuration'),
   pipeline(title,
     stages = [
-      sourceStage(title),
       buildStage(title),
       postBuildStage(title, 'QA Plan'),
       postBuildStage(title, 'QA Deploy'),

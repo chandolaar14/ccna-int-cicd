@@ -18,7 +18,25 @@ function(title, stages)
             location: '${aws_s3_bucket.artifact_store.bucket}',
           },
 
-          stage: stages,
+          stage: [
+            {
+			  name: 'Source',
+			  action: [
+                {
+                  name: 'Source',
+  				  category: 'Source',
+  				  provider: 'CodeCommit',
+  				  version: '1',
+  				  owner: 'AWS',
+  				  configuration: {
+  				    RepositoryName: '${aws_codecommit_repository.' + key + '.repository_name}',
+    				BranchName: 'master',
+  				  },
+  				  output_artifacts: [ 'source' ]
+				},
+              ],
+            }
+          ] + stages,
           tags: tags(name),
         },
       },

@@ -5,7 +5,6 @@ local codebuild = import 'codebuild.libsonnet';
 local singleActionStage = import 'singleActionStage.libsonnet';
 local actionStage = import 'actionStage.libsonnet';
 local postBuildAction = import 'postBuildAction.libsonnet';
-local sourceStage = import 'sourceStage.libsonnet';
 local buildStage = import 'buildStage.libsonnet';
 
 local title = 'Platform';
@@ -14,7 +13,6 @@ merge([
   repository(title, 'Platform code'),
   pipeline(title,
     stages = [
-      sourceStage(title),
       buildStage(title),
       actionStage(title, 'Test', [
         postBuildAction('Functional Tests'),
