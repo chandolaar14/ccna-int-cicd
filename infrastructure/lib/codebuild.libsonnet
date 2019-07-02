@@ -1,14 +1,14 @@
 local buildImage = import 'buildImage.libsonnet';
 local tags = import 'tags.libsonnet';
 local settings = import '../../settings.json';
+local pipeCase = import 'pipeCase.libsonnet';
+local snakeCase = import 'snakeCase.libsonnet';
 
 function(pipelineTitle, actionTitle)
 local combined = pipelineTitle + ' ' + actionTitle;
-local lowercase = std.asciiLower(combined);
-local key = std.strReplace(lowercase, ' ', '_');
-local suffix = std.strReplace(lowercase, ' ', '-');
-local name = settings.projectName + '-' + suffix;
-local buildspec = 'buildspec-' + suffix + '.yml';
+local key = snakeCase(combined);
+local name = pipeCase(settings.projectName + ' ' + combined);
+local buildspec = 'buildspec-' + pipeCase(actionTitle) + '.yml';
 {
   resource: {
     aws_codebuild_project: {

@@ -2,3 +2,4 @@
 *.tf.json
 output.json
 *.tf
+plan

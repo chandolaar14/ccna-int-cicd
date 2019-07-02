@@ -5,7 +5,7 @@ function(name)
   [{
       ApplicationCode: settings.applicationCode,
       application_id: settings.applicationId,
-      Name: resourceName(name),
+      Name: name,
       environment: settings.projectName,
       Subsystem: 'NA',
       arch_compliance: 'NA',

@@ -1,11 +1,9 @@
 local pipelineAction = import 'pipelineAction.libsonnet';
+local pascalCase = import 'pascalCase.libsonnet';
 
 function(pipelineTitle, stageTitle, actions)
-local combined = pipelineTitle + ' ' + stageTitle;
-local lowercase = std.asciiLower(combined);
-local name =  std.strReplace(lowercase, ' ', '_');
 {
-  name: name,
+  name: pascalCase(stageTitle),
   action: [
     pipelineAction(pipelineTitle, action.title,
       input = if std.objectHas(action, 'input') then action.input else null,
