@@ -7,18 +7,18 @@ local artifactStore = import 'lib/artifactStore.libsonnet';
 local platformRepository = import 'lib/platformRepository.libsonnet';
 local instanceRepository = import 'lib/instanceRepository.libsonnet';
 local testDataRepository = import 'lib/testDataRepository.libsonnet';
-local buildStage = import 'lib/buildStage.libsonnet';
+local platformBuildStage = import 'lib/platformBuildStage.libsonnet';
 local instanceBuildStage = import 'lib/instanceBuildStage.libsonnet';
 local checkmarxScanStage = import 'lib/checkmarxScanStage.libsonnet';
-local deliverStage = import 'lib/deliverStage.libsonnet';
+local platformDeliverStage = import 'lib/platformDeliverStage.libsonnet';
 local platformTagStage = import 'lib/platformTagStage.libsonnet';
 local qaPlanStage = import 'lib/qaPlanStage.libsonnet';
 local qaDeployStage = import 'lib/qaDeployStage.libsonnet';
 local testDataSyncStage = import 'lib/testDataSyncStage.libsonnet';
-local functionalTestStage = import 'lib/functionalTestStage.libsonnet';
+local platformFunctionalTestStage = import 'lib/platformFunctionalTestStage.libsonnet';
 local secretsManager = import 'lib/secretsManager.libsonnet';
-local metaschemaTestStage = import 'lib/metaschemaTestStage.libsonnet';
-local performanceTestStage = import 'lib/performanceTestStage.libsonnet';
+local platformMetaschemaTestStage = import 'lib/platformMetaschemaTestStage.libsonnet';
+local platformPerformanceTestStage = import 'lib/platformPerformanceTestStage.libsonnet';
 local codeBuildRole = import 'lib/codeBuildRole.libsonnet';
 local pipelineRole = import 'lib/pipelineRole.libsonnet';
 local platformPipeline = import 'lib/platformPipeline.libsonnet';
@@ -59,9 +59,9 @@ merge([
   platformRepository,
   instanceRepository,
   testDataRepository,
-  buildStage,
+  platformBuildStage,
   instanceBuildStage,
-  deliverStage,
+  platformDeliverStage,
   platformTagStage,
   qaPlanStage,
   qaDeployStage,
@@ -70,11 +70,11 @@ merge([
   prodPlanStage,
   prodDeployStage,
   testDataSyncStage,
-  functionalTestStage,
+  platformFunctionalTestStage,
   checkmarxScanStage,
   secretsManager,
-  metaschemaTestStage,
-  performanceTestStage,
+  platformMetaschemaTestStage,
+  platformPerformanceTestStage,
   codeBuildRole,
   platformPipeline,
   instancePipeline,
