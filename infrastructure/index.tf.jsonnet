@@ -4,24 +4,17 @@ local provider = import 'lib/provider.libsonnet';
 
 local releaseBucket = import 'lib/releaseBucket.libsonnet';
 local artifactStore = import 'lib/artifactStore.libsonnet';
-local platformRepository = import 'lib/platformRepository.libsonnet';
+local platform = import 'lib/platform.libsonnet';
 local instanceRepository = import 'lib/instanceRepository.libsonnet';
 local testDataRepository = import 'lib/testDataRepository.libsonnet';
-local platformBuildStage = import 'lib/platformBuildStage.libsonnet';
 local instanceBuildStage = import 'lib/instanceBuildStage.libsonnet';
 local checkmarxScanStage = import 'lib/checkmarxScanStage.libsonnet';
-local platformDeliverStage = import 'lib/platformDeliverStage.libsonnet';
-local platformTagStage = import 'lib/platformTagStage.libsonnet';
 local qaPlanStage = import 'lib/qaPlanStage.libsonnet';
 local qaDeployStage = import 'lib/qaDeployStage.libsonnet';
 local testDataSyncStage = import 'lib/testDataSyncStage.libsonnet';
-local platformFunctionalTestStage = import 'lib/platformFunctionalTestStage.libsonnet';
 local secretsManager = import 'lib/secretsManager.libsonnet';
-local platformMetaschemaTestStage = import 'lib/platformMetaschemaTestStage.libsonnet';
-local platformPerformanceTestStage = import 'lib/platformPerformanceTestStage.libsonnet';
 local codeBuildRole = import 'lib/codeBuildRole.libsonnet';
 local pipelineRole = import 'lib/pipelineRole.libsonnet';
-local platformPipeline = import 'lib/platformPipeline.libsonnet';
 local instancePipeline = import 'lib/instancePipeline.libsonnet';
 local testDataPipeline = import 'lib/testDataPipeline.libsonnet';
 local platformFailureAlert = import 'lib/platformFailureAlert.libsonnet';
@@ -56,13 +49,10 @@ merge([
   provider,
   releaseBucket,
   artifactStore,
-  platformRepository,
+  platform,
   instanceRepository,
   testDataRepository,
-  platformBuildStage,
   instanceBuildStage,
-  platformDeliverStage,
-  platformTagStage,
   qaPlanStage,
   qaDeployStage,
   uatPlanStage,
@@ -70,13 +60,9 @@ merge([
   prodPlanStage,
   prodDeployStage,
   testDataSyncStage,
-  platformFunctionalTestStage,
   checkmarxScanStage,
   secretsManager,
-  platformMetaschemaTestStage,
-  platformPerformanceTestStage,
   codeBuildRole,
-  platformPipeline,
   instancePipeline,
   testDataPipeline,
   pipelineRole,
