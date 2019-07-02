@@ -1,6 +1,6 @@
 {
   "deployRoleARN": "arn:aws:iam::362550720160:role/ccna_intsrvc_nonprod_deployment_role",
-  "projectName": "ccna-int-new",
+  "projectName": "ccna-int",
   "tfState": {
     "bucket": "tfstate.ccna-int.ccna.info",
     "region": "us-west-2"

@@ -1,6 +1,7 @@
+local pascalCase = import 'pascalCase.libsonnet';
+
 function(title = 'Approval')
-local lowercase = std.asciiLower(title);
-local name =  std.strReplace(lowercase, ' ', '_');
+local name = pascalCase(title);
 {
   name: name,
   action: [{
