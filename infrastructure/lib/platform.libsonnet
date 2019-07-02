@@ -3,9 +3,8 @@ local repository = import 'repository.libsonnet';
 local pipeline = import 'pipeline.libsonnet';
 local codebuild = import 'codebuild.libsonnet';
 local pipelineAction = import 'pipelineAction.libsonnet';
+local sourceAction = import 'sourceAction.libsonnet';
 local settings = import '../../settings.json';
-local buildImage = import 'buildImage.libsonnet';
-local tags = import 'tags.libsonnet';
 
 merge([
   repository(
@@ -18,18 +17,9 @@ merge([
     name = settings.projectName,
     stages = [{
       name: 'Source',
-      action: [{
-        name: 'Source',
-        category: 'Source',
-        provider: 'CodeCommit',
-        version: '1',
-        owner: 'AWS',
-        configuration: {
-          RepositoryName: '${aws_codecommit_repository.platform.repository_name}',
-          BranchName: 'master',
-        },
-        output_artifacts: [ 'source' ]
-      }],
+      action: [
+        sourceAction('${aws_codecommit_repository.platform.repository_name}'),
+      ],
     },{
       name: 'Build',
       action: [
