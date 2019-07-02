@@ -1,0 +1,27 @@
+local buildImage = import 'buildImage.libsonnet';
+local tags = import 'tags.libsonnet';
+
+function(key, name, buildspec)
+{
+  resource: {
+    aws_codebuild_project: {
+      [key]: {
+        name: name,
+        service_role: '${aws_iam_role.codebuild.arn}',
+        environment: [{
+          compute_type: 'BUILD_GENERAL1_SMALL',
+          type: 'LINUX_CONTAINER',
+          image: buildImage,
+        }],
+        source: [{
+          type: 'CODEPIPELINE',
+          buildspec: buildspec,
+        }],
+        artifacts: [{
+          type: 'CODEPIPELINE',
+        }],
+        tags: tags(name),
+      },
+    },
+  },
+}
