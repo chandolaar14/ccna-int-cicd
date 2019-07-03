@@ -1,7 +1,7 @@
 local pascalCase = import 'pascalCase.libsonnet';
 
-function(title = 'Approval')
-local name = pascalCase(title);
+function(title = null)
+local name = pascalCase(if title == null then 'Approval' else title);
 {
   name: name,
   action: [{
