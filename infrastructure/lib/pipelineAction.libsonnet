@@ -2,7 +2,7 @@ local settings = import '../../settings.json';
 local snakeCase = import 'snakeCase.libsonnet';
 local pascalCase = import 'pascalCase.libsonnet';
 
-function(pipelineTitle, actionTitle, input = null, output = null)
+function(pipelineTitle, actionTitle, inputs = null, output = null)
 local key = snakeCase(pipelineTitle + ' ' + actionTitle);
 local ProjectName = '${aws_codebuild_project.' + key + '.name}';
 {
@@ -14,6 +14,6 @@ local ProjectName = '${aws_codebuild_project.' + key + '.name}';
   configuration: {
 	ProjectName: ProjectName,
   },
-  [if input != null then 'input_artifacts']: [input],
+  [if inputs != null then 'input_artifacts']: inputs,
   [if output != null then 'output_artifacts']: [output],
 }

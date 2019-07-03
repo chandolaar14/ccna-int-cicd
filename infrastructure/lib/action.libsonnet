@@ -1,2 +1,2 @@
-function(title, input = null, output = null) { title: title, input: input, output: output }
+function(title, inputs = null, output = null) { title: title, inputs: inputs, output: output }
 

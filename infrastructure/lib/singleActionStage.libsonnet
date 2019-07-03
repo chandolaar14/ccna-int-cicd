@@ -4,6 +4,6 @@ local actionStage = import 'actionStage.libsonnet';
 
 function(pipelineTitle, title, input = null, output = null)
   actionStage(pipelineTitle, title, [
-    { title: title, input: input, output: output },
+    { title: title, inputs: [input], output: output },
   ])
 

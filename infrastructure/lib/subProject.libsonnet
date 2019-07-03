@@ -18,7 +18,7 @@ merge([
    	  if stage.type == 'build' then buildStage(title)
    	  else if stage.type == 'action' then actionStage(title, stage.title, [
    	    if !std.objectHas(stageAction, 'type') then action(stageAction.title,
-   	  	  input = if std.objectHas(stageAction, 'input') then stageAction.input else null,
+   	  	  inputs = if std.objectHas(stageAction, 'inputs') then stageAction.inputs else null,
    	  	  output = if std.objectHas(stageAction, 'output') then stageAction.output else null,
    	    )
    	    else if stageAction.type == 'post-build' then postBuildAction(stageAction.title,

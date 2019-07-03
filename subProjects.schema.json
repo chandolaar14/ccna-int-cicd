@@ -10,8 +10,11 @@
         "title": {
           "type": "string"
         },
-        "input": {
-          "type": "string"
+        "inputs": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         },
         "output": {
           "type": "string"

@@ -27,7 +27,7 @@
           },
           {
             "title": "Checkmarx Scan",
-            "input": "source",
+            "inputs": ["source"],
 	    "output": "checkmarx-results"
           }
         ]
@@ -38,11 +38,16 @@
         "input": "buildPackage",
         "output": "versionedPackage"
       },
-      {
-        "type": "single-action",
+     {
+        "type": "action",
         "title": "Deliver",
-        "input": "versionedPackage"
-      }
+        "actions": [
+          {
+            "title": "Deliver",
+            "inputs": [ "versionedPackage", "functional-results", "metaschema-results", "checkmarx-results" ]
+          }
+        ]
+     }
     ]
   },
   {
