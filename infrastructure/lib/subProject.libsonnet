@@ -43,11 +43,11 @@ merge([
   if stage.type == 'build'
 ]);
 
-local singleActionCodebuilds(title, stages) =
+local nonBuildCodebuilds(title, stages) =
 merge([
   codebuild(title, stage.title)
   for stage in stages
-  if stage.type == 'single-action'
+  if stage.type != 'build' && stage.type != 'approval' && stage.type != 'action'
 ]);
 
 local nestedCodebuilds(title, stages) =
@@ -62,6 +62,6 @@ function(title, description, stages)
 merge([
   base(title, description, stages),
   buildCodebuilds(title, stages),
-  singleActionCodebuilds(title, stages),
+  nonBuildCodebuilds(title, stages),
   nestedCodebuilds(title, stages),
 ])
