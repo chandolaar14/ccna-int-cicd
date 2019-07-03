@@ -1,0 +1,167 @@
+[
+  {
+    "title": "Platform",
+    "description": "Platform code",
+    "stages": [
+      {
+        "type": "build"
+      },
+      {
+        "type": "action",
+        "title": "Test",
+        "actions": [
+          {
+            "type": "post-build",
+            "title": "Functional Tests"
+          },
+          {
+            "type": "post-build",
+            "title": "Metaschema Tests"
+          },
+          {
+            "type": "post-build",
+            "title": "Performance Tests"
+          },
+          {
+            "title": "Checkmarx Scan",
+            "input": "source"
+          }
+        ]
+      },
+      {
+        "type": "single-action",
+        "title": "Tag",
+        "input": "buildPackage",
+        "output": "versionedPackage"
+      },
+      {
+        "type": "single-action",
+        "title": "Deliver",
+        "input": "versionedPackage"
+      }
+    ]
+  },
+  {
+    "title": "Platform Deploy",
+    "description": "Migration Platform Deploy Configuration",
+    "stages": [
+      {
+        "type": "build"
+      },
+      {
+        "type": "action",
+        "title": "Plan",
+        "actions": [
+          {
+            "type": "post-build",
+            "title": "QA Plan"
+          },
+          {
+            "type": "post-build",
+            "title": "UAT Plan"
+          }
+        ]
+      },
+      {
+        "type": "approval"
+      },
+      {
+        "type": "action",
+        "title": "Deploy",
+        "actions": [
+          {
+            "type": "post-build",
+            "title": "QA Deploy"
+          },
+          {
+            "type": "post-build",
+            "title": "UAT Deploy"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Test Data",
+    "description": "Data for Platform and Migration testing",
+    "stages": [
+      {
+        "type": "single-action",
+        "title": "Sync",
+        "input": "source"
+      }
+    ]
+  },
+  {
+    "title": "Transfer Server",
+    "description": "AWS Transfer Server for Platform and Migration testing",
+    "stages": [
+      {
+        "type": "single-action",
+        "title": "Deploy",
+        "input": "source"
+      }
+    ]
+  },
+  {
+    "title": "Migration",
+    "description": "Migration configuration",
+    "stages": [
+      {
+        "type": "build"
+      },
+      {
+        "type": "post-build",
+        "title": "QA Plan"
+      },
+      {
+        "type": "post-build",
+        "title": "QA Deploy"
+      },
+      {
+        "type": "post-build",
+        "title": "UAT Plan"
+      },
+      {
+        "type": "approval",
+        "title": "UAT Approval"
+      },
+      {
+        "type": "post-build",
+        "title": "UAT Deploy"
+      },
+      {
+        "type": "post-build",
+        "title": "Prod Plan"
+      },
+      {
+        "type": "approval",
+        "title": "Prod Approval"
+      },
+      {
+        "type": "post-build",
+        "title": "Prod Deploy"
+      }
+    ]
+  },
+  {
+    "title": "Demo",
+    "description": "Configuration and deployment of a demo environment",
+    "stages": [
+      {
+        "type": "build"
+      },
+      {
+        "type": "post-build",
+        "title": "Plan"
+      },
+      {
+        "type": "approval"
+      },
+      {
+        "type": "post-build",
+        "title": "Deploy"
+      }
+    ]
+  }
+]

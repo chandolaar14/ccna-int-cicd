@@ -1,3 +1,5 @@
+local pipelines = import '../pipelines.json';
+
 local merge = import 'lib/merge.libsonnet';
 local backend = import 'lib/backend.libsonnet';
 local provider = import 'lib/provider.libsonnet';
@@ -10,12 +12,7 @@ local pipelineRole = import 'lib/pipelineRole.libsonnet';
 local platformFailureAlert = import 'lib/platformFailureAlert.libsonnet';
 local migrationUtilsRepository = import 'lib/migrationUtilsRepository.libsonnet';
 
-local demo = import 'lib/demo.libsonnet';
-local migration = import 'lib/migration.libsonnet';
-local platform = import 'lib/platform.libsonnet';
-local platformDeploy = import 'lib/platformDeploy.libsonnet';
-local testData = import 'lib/testData.libsonnet';
-local transferServer = import 'lib/transferServer.libsonnet';
+local subProject = import 'lib/subProject.libsonnet';
 
 merge([
   backend('infrastructure'),
@@ -27,11 +24,7 @@ merge([
   pipelineRole,
   platformFailureAlert,
   migrationUtilsRepository,
-
-  demo,
-  migration,
-  platform,
-  platformDeploy,
-  testData,
-  transferServer,
+] + [
+  subProject(pipeline.title, pipeline.description, pipeline.stages)
+  for pipeline in pipelines
 ])
