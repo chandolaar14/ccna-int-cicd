@@ -12,19 +12,23 @@
         "actions": [
           {
             "type": "post-build",
-            "title": "Functional Tests"
+            "title": "Functional Tests",
+	    "output": "functional-results"
           },
           {
             "type": "post-build",
-            "title": "Metaschema Tests"
+            "title": "Metaschema Tests",
+	    "output": "metaschema-results"
           },
           {
             "type": "post-build",
-            "title": "Performance Tests"
+            "title": "Performance Tests",
+	    "output": "performance-results"
           },
           {
             "title": "Checkmarx Scan",
-            "input": "source"
+            "input": "source",
+	    "output": "checkmarx-results"
           }
         ]
       },

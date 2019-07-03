@@ -1,2 +1,2 @@
-function(title) { title: title, input: 'buildPackage' }
+function(title, output = null) { title: title, input: 'buildPackage', output: output}
 
