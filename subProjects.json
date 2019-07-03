@@ -119,6 +119,10 @@
     ]
   },
   {
+    "title": "Metaschema Utils",
+    "description": "Utilities to validate and deployment metaschema"
+  },
+  {
     "title": "Migration",
     "description": "Migration configuration",
     "stages": [
