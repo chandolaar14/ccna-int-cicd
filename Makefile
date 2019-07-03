@@ -17,12 +17,14 @@ CLEAN_DIRS += jsonnet
 publish-image: build-jsonnet
 	./scripts/publish-docker.sh
 
-deploy: build-jsonnet
+validate:
+	npx ajv-cli validate -s subProjects.schema.json -d subProjects.json
+deploy: validate build-jsonnet
 	# deploy infrastructure
 	${SUB_MAKE} infrastructure deploy
-plan: build-jsonnet
+plan: validate build-jsonnet
 	${SUB_MAKE} infrastructure plan
-destroy: build-jsonnet
+destroy: validate build-jsonnet
 	${SUB_MAKE} infrastructure destroy
 CLEAN_DIRS += infrastructure
 
