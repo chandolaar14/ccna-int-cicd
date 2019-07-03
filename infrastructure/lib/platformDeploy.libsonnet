@@ -1,4 +1,3 @@
-local merge = import 'merge.libsonnet';
 local subProject = import 'subProject.libsonnet';
 
 subProject('Platform Deploy', 'Migration Platform Deploy Configuration', [
