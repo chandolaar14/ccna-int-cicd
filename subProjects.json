@@ -50,7 +50,7 @@
         "actions": [
           {
             "title": "Deliver",
-            "inputs": [ "versionedPackage", "functional-results", "metaschema-results", "checkmarx-results" ]
+            "inputs": [ "versionedPackage" ]
           }
         ]
      }
