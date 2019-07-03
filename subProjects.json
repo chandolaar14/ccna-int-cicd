@@ -24,7 +24,13 @@
             "type": "post-build",
             "title": "Performance Tests",
 	    "output": "performance-results"
-          },
+          }
+        ]
+      },
+      {
+        "type": "action",
+        "title": "Security Test",
+        "actions": [
           {
             "title": "Checkmarx Scan",
             "inputs": ["source"],
