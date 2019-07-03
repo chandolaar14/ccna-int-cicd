@@ -1,4 +1,4 @@
-local pipelines = import '../pipelines.json';
+local subProjects = import '../subProjects.json';
 
 local merge = import 'lib/merge.libsonnet';
 local backend = import 'lib/backend.libsonnet';
@@ -10,9 +10,9 @@ local secretsManager = import 'lib/secretsManager.libsonnet';
 local codeBuildRole = import 'lib/codeBuildRole.libsonnet';
 local pipelineRole = import 'lib/pipelineRole.libsonnet';
 local platformFailureAlert = import 'lib/platformFailureAlert.libsonnet';
-local migrationUtilsRepository = import 'lib/migrationUtilsRepository.libsonnet';
 
 local subProject = import 'lib/subProject.libsonnet';
+local repository = import 'lib/repository.libsonnet';
 
 merge([
   backend('infrastructure'),
@@ -23,8 +23,12 @@ merge([
   codeBuildRole,
   pipelineRole,
   platformFailureAlert,
-  migrationUtilsRepository,
 ] + [
-  subProject(pipeline.title, pipeline.description, pipeline.stages)
-  for pipeline in pipelines
+  subProject(subProjectDefinition.title, subProjectDefinition.description, subProjectDefinition.stages)
+  for subProjectDefinition in subProjects
+  if std.objectHas(subProjectDefinition, 'stages')
+] + [
+  repository(subProjectDefinition.title, subProjectDefinition.description)
+  for subProjectDefinition in subProjects
+  if !std.objectHas(subProjectDefinition, 'stages')
 ])

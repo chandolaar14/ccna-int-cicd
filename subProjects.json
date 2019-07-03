@@ -163,5 +163,9 @@
         "title": "Deploy"
       }
     ]
+  },
+  {
+    "title": "Migration Utils",
+    "description": "Migration configuration generation utilities"
   }
 ]
