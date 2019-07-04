@@ -130,18 +130,8 @@
         "type": "build"
       },
       {
-        "type": "action",
-        "title": "Test",
-        "actions": [
-          {
-            "type": "post-build",
-            "title": "Publish Deploy Test"
-          },
-          {
-            "type": "post-build",
-            "title": "Non Publish Deploy Test"
-          }
-        ]
+        "type": "post-build",
+        "title": "Test"
       }
     ]
   },
