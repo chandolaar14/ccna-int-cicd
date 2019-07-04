@@ -132,6 +132,24 @@
       {
         "type": "post-build",
         "title": "Test"
+      },
+      {
+        "type": "single-action",
+        "title": "Tag",
+        "input": "buildPackage",
+        "output": "versionedPackage"
+      },
+      {
+        "type": "action",
+        "title": "Deliver",
+        "actions": [
+          {
+            "title": "Deliver",
+            "inputs": [
+              "versionedPackage"
+            ]
+          }
+        ]
       }
     ]
   },
