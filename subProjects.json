@@ -135,11 +135,11 @@
         "actions": [
           {
             "type": "post-build",
-            "title": "Prod Deploy Test"
+            "title": "Publish Deploy Test"
           },
           {
             "type": "post-build",
-            "title": "Non Prod Deploy Test"
+            "title": "Non Publish Deploy Test"
           }
         ]
       }
