@@ -8,7 +8,6 @@ default:
 	echo "no default target"
 
 SUB_MAKE = make -C
-RM = rm -rf
 
 publish-image:
 	./scripts/publish-docker.sh
@@ -25,7 +24,6 @@ plan: validate
 	${SUB_MAKE} infrastructure plan
 destroy: validate
 	${SUB_MAKE} infrastructure destroy
-CLEAN_DIRS += infrastructure
 
 format:
 	# format jsonnet and libsonnet
@@ -34,8 +32,4 @@ format:
 	find . -type f | egrep '.*\.json$$' | xargs npx prettier --write
 
 clean:
-	# remove each file or folder mentioned in the gitignore
-	${RM} $$(cat ./.gitignore)
-
-	# clean each cleanable subdirectory
-	for folder in ${CLEAN_DIRS}; do ${SUB_MAKE} $$folder clean ; done
+	git clean -fdX
