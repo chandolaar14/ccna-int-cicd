@@ -15,13 +15,13 @@ local tags = import 'tags.libsonnet';
             '${aws_s3_bucket.artifact_store.arn}',
             '${aws_s3_bucket.artifact_store.arn}/*',
           ],
-        },{
+        }, {
           actions: [
             'codebuild:BatchGetBuilds',
             'codebuild:StartBuild',
           ],
           resources: ['*'],
-        },{
+        }, {
           actions: [
             'codecommit:Get*',
             'codecommit:*Archive*',
@@ -29,7 +29,7 @@ local tags = import 'tags.libsonnet';
           resources: [
             '*',
           ],
-        },{
+        }, {
           actions: [
             's3:*',
           ],
@@ -43,10 +43,10 @@ local tags = import 'tags.libsonnet';
       },
       pipeline_assume: {
         statement: [{
-          actions: [ 'sts:AssumeRole' ],
+          actions: ['sts:AssumeRole'],
           principals: [{
             type: 'Service',
-            identifiers: [ 'codepipeline.amazonaws.com' ],
+            identifiers: ['codepipeline.amazonaws.com'],
           }],
         }],
       },

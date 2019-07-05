@@ -1,6 +1,6 @@
 function(components)
   std.foldl(
-   	std.mergePatch,
-   	components,
-   	{},
+    std.mergePatch,
+    components,
+    {},
   )

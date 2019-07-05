@@ -2,8 +2,7 @@ local actionStage = import 'actionStage.libsonnet';
 
 // a stage with a single action
 
-function(pipelineTitle, title, input = null, output = null)
+function(pipelineTitle, title, input=null, output=null)
   actionStage(pipelineTitle, title, [
     { title: title, inputs: [input], output: output },
   ])
-

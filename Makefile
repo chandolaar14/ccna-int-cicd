@@ -27,6 +27,9 @@ destroy: validate
 	${SUB_MAKE} infrastructure destroy
 CLEAN_DIRS += infrastructure
 
+format:
+	ls infrastructure/lib/*.libsonnet | xargs -n1 jsonnetfmt -i
+
 clean:
 	# remove each file or folder mentioned in the gitignore
 	${RM} $$(cat ./.gitignore)

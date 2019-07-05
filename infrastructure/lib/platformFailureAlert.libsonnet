@@ -27,7 +27,7 @@ local resourceName = import 'resourceName.libsonnet';
         event_pattern: std.toString({
           source: ['aws.codepipeline'],
           'detail-type': ['CodePipeline Pipeline Execution State Change'],
-          'detail': {
+          detail: {
             state: ['FAILED'],
           },
         }),

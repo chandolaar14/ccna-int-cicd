@@ -1,5 +1,5 @@
-local resourceName = import 'resourceName.libsonnet';
 local settings = import '../../settings.json';
+local resourceName = import 'resourceName.libsonnet';
 local tags = import 'tags.libsonnet';
 
 {
@@ -37,7 +37,7 @@ local tags = import 'tags.libsonnet';
             'logs:PutLogEvents',
           ],
           resources: ['*'],
-        },{
+        }, {
           actions: [
             's3:PutObject',
             's3:GetObject',
@@ -74,34 +74,34 @@ local tags = import 'tags.libsonnet';
           ],
         }, {
           actions: [
-            "secretsmanager:GetSecretValue"
+            'secretsmanager:GetSecretValue',
           ],
           resources: [
-            '${data.aws_secretsmanager_secret.by-arn.arn}'
+            '${data.aws_secretsmanager_secret.by-arn.arn}',
           ],
         }, {
-         actions: [
-           "kms:*"
-         ],
-         resources: [
-           "arn:aws:kms:us-west-2:362550720160:key/1f4dd8ef-3bca-4f5e-aaae-c039ee3a8cfd",
-           "arn:aws:kms:us-east-1:362550720160:key/3d718e09-819b-4331-9795-2cc633526354"
-         ],
+          actions: [
+            'kms:*',
+          ],
+          resources: [
+            'arn:aws:kms:us-west-2:362550720160:key/1f4dd8ef-3bca-4f5e-aaae-c039ee3a8cfd',
+            'arn:aws:kms:us-east-1:362550720160:key/3d718e09-819b-4331-9795-2cc633526354',
+          ],
         }] + (
           if std.length(settings.assumableRoles) == 0
           then []
           else [{
-            actions: [ 'sts:AssumeRole' ],
-          	resources: settings.assumableRoles,
+            actions: ['sts:AssumeRole'],
+            resources: settings.assumableRoles,
           }]
-        )
+        ),
       },
       codebuild_assume: {
         statement: [{
-          actions: [ 'sts:AssumeRole' ],
+          actions: ['sts:AssumeRole'],
           principals: [{
             type: 'Service',
-            identifiers: [ 'codebuild.amazonaws.com' ],
+            identifiers: ['codebuild.amazonaws.com'],
           }],
         }],
       },
