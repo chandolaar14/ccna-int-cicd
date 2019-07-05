@@ -14,8 +14,11 @@ build-jsonnet:
 	${SUB_MAKE} jsonnet
 CLEAN_DIRS += jsonnet
 
-publish-image: build-jsonnet
+publish-image:
 	./scripts/publish-docker.sh
+
+run-image:
+	./scripts/run-docker.sh
 
 validate:
 	npx ajv-cli validate -s subProjects.schema.json -d subProjects.json

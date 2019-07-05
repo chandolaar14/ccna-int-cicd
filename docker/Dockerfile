@@ -26,6 +26,7 @@ RUN apk add --no-cache openssh
 RUN apk add --no-cache outils-md5
 RUN apk add --no-cache curl
 RUN apk add --no-cache openjdk8-jre
+RUN apk add --no-cache jsonnet --repository=http://dl-cdn.alpinelinux.org/alpine/edge/testing
 
 RUN mkdir /working && chown builder /working
 

@@ -14,5 +14,8 @@
   ],
   "applicationCode": "INT",
   "applicationId": "UID000015224773",
-  "imageVersion": "1.0.8"
+  "docker": {
+    "tag": "int-build",
+    "version": "1.0.9"
+  }
 }
