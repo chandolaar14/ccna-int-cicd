@@ -27,6 +27,8 @@ local tags = import 'tags.libsonnet';
           resources: [
             '${aws_codecommit_repository.platform.arn}',
             '${aws_codecommit_repository.platform.arn}/*',
+            '${aws_codecommit_repository.metaschema_utils.arn}',
+            '${aws_codecommit_repository.metaschema_utils.arn}/*',
           ],
         }, {
           actions: [
