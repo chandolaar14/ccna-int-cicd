@@ -1,18 +1,18 @@
 local subProjects = import '../subProjects.json';
 
-local merge = import 'lib/merge.libsonnet';
 local backend = import 'lib/backend.libsonnet';
+local merge = import 'lib/merge.libsonnet';
 local provider = import 'lib/provider.libsonnet';
 
-local releaseBucket = import 'lib/releaseBucket.libsonnet';
 local artifactStore = import 'lib/artifactStore.libsonnet';
-local secretsManager = import 'lib/secretsManager.libsonnet';
 local codeBuildRole = import 'lib/codeBuildRole.libsonnet';
 local pipelineRole = import 'lib/pipelineRole.libsonnet';
 local platformFailureAlert = import 'lib/platformFailureAlert.libsonnet';
+local releaseBucket = import 'lib/releaseBucket.libsonnet';
+local secretsManager = import 'lib/secretsManager.libsonnet';
 
-local subProject = import 'lib/subProject.libsonnet';
 local repository = import 'lib/repository.libsonnet';
+local subProject = import 'lib/subProject.libsonnet';
 
 merge([
   backend('infrastructure'),

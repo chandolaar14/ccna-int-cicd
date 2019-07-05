@@ -28,7 +28,7 @@ destroy: validate
 CLEAN_DIRS += infrastructure
 
 format:
-	ls infrastructure/lib/*.libsonnet | xargs -n1 jsonnetfmt -i
+	find . -type f | egrep '.*\.(j|lib)sonnet' | xargs -n1 jsonnetfmt -i
 
 clean:
 	# remove each file or folder mentioned in the gitignore
