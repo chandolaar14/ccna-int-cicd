@@ -17,11 +17,6 @@
           },
           {
             "type": "post-build",
-            "title": "Metaschema Tests",
-            "output": "metaschema-results"
-          },
-          {
-            "type": "post-build",
             "title": "Performance Tests",
             "output": "performance-results"
           }
