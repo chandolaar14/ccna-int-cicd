@@ -69,7 +69,7 @@
       },
       {
         "type": "action",
-        "title": "Plan",
+        "title": "NonProd Plan",
         "actions": [
           {
             "type": "post-build",
@@ -82,11 +82,12 @@
         ]
       },
       {
-        "type": "approval"
+        "type": "approval",
+        "title": "NonProd Approval"
       },
       {
         "type": "action",
-        "title": "Deploy",
+        "title": "NonProd Deploy",
         "actions": [
           {
             "type": "post-build",
@@ -97,6 +98,18 @@
             "title": "UAT Deploy"
           }
         ]
+      },
+      {
+        "type": "post-build",
+        "title": "Prod Plan"
+      },
+      {
+        "type": "approval",
+        "title": "Prod Approval"
+      },
+      {
+        "type": "post-build",
+        "title": "Prod Deploy"
       }
     ]
   },
