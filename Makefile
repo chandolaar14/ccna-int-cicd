@@ -33,3 +33,6 @@ format:
 
 clean:
 	git clean -fdX
+
+get-pipeline-states:
+	aws codepipeline --region $$(jq -r .region settings.json) list-pipelines --output text --query 'pipelines[*].[name]' | xargs -n1 aws codepipeline --region us-west-2 get-pipeline-state --output text --query '[pipelineName,stageStates[*].latestExecution.status]' --name
