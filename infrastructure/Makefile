@@ -5,7 +5,7 @@ SHELL=/bin/bash
 .PHONY: default plan clean destroy
 
 TF = terraform
-JSONNET = ../jsonnet/jsonnet
+JSONNET = jsonnet
 RM = rm -rf
 
 default:
