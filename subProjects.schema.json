@@ -3,9 +3,7 @@
     "action": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "title"
-      ],
+      "required": ["title"],
       "properties": {
         "title": {
           "type": "string"
@@ -24,10 +22,7 @@
     "postBuildAction": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "title",
-        "type"
-      ],
+      "required": ["title", "type"],
       "properties": {
         "title": {
           "type": "string"
@@ -37,20 +32,14 @@
         },
         "type": {
           "type": "string",
-          "enum": [
-            "post-build"
-          ]
+          "enum": ["post-build"]
         }
       }
     },
     "actionStage": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "actions",
-        "title",
-        "type"
-      ],
+      "required": ["actions", "title", "type"],
       "properties": {
         "title": {
           "type": "string"
@@ -60,9 +49,7 @@
         },
         "type": {
           "type": "string",
-          "enum": [
-            "action"
-          ]
+          "enum": ["action"]
         },
         "actions": {
           "type": "array",
@@ -82,29 +69,21 @@
     "postBuildStage": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "title",
-        "type"
-      ],
+      "required": ["title", "type"],
       "properties": {
         "title": {
           "type": "string"
         },
         "type": {
           "type": "string",
-          "enum": [
-            "post-build"
-          ]
+          "enum": ["post-build"]
         }
       }
     },
     "singleActionStage": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "title",
-        "type"
-      ],
+      "required": ["title", "type"],
       "properties": {
         "title": {
           "type": "string"
@@ -117,51 +96,38 @@
         },
         "type": {
           "type": "string",
-          "enum": [
-            "single-action"
-          ]
+          "enum": ["single-action"]
         }
       }
     },
     "approvalStage": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "type"
-      ],
+      "required": ["type"],
       "properties": {
         "title": {
           "type": "string"
         },
         "type": {
           "type": "string",
-          "enum": [
-            "approval"
-          ]
+          "enum": ["approval"]
         }
       }
     },
     "buildStage": {
       "type": "object",
       "additionalProperties": false,
-      "required": [
-        "type"
-      ],
+      "required": ["type"],
       "properties": {
         "type": {
           "type": "string",
-          "enum": [
-            "build"
-          ]
+          "enum": ["build"]
         }
       }
     },
     "subProject": {
       "type": "object",
-      "required": [
-        "title",
-        "description"
-      ],
+      "required": ["title", "description"],
       "additionalProperties": false,
       "properties": {
         "title": {

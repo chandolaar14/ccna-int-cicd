@@ -28,7 +28,10 @@ destroy: validate
 CLEAN_DIRS += infrastructure
 
 format:
-	find . -type f | egrep '.*\.(j|lib)sonnet' | xargs -n1 jsonnetfmt -i
+	# format jsonnet and libsonnet
+	find . -type f | egrep '.*\.(j|lib)sonnet$$' | xargs -n1 jsonnetfmt -i
+	# format json
+	find . -type f | egrep '.*\.json$$' | xargs npx prettier --write
 
 clean:
 	# remove each file or folder mentioned in the gitignore

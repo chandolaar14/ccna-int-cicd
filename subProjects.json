@@ -33,9 +33,7 @@
         "actions": [
           {
             "title": "Checkmarx Scan",
-            "inputs": [
-              "source"
-            ],
+            "inputs": ["source"],
             "output": "checkmarx-results"
           }
         ]
@@ -52,9 +50,7 @@
         "actions": [
           {
             "title": "Deliver",
-            "inputs": [
-              "versionedPackage"
-            ]
+            "inputs": ["versionedPackage"]
           }
         ]
       }
@@ -158,9 +154,7 @@
         "actions": [
           {
             "title": "Deliver",
-            "inputs": [
-              "versionedPackage"
-            ]
+            "inputs": ["versionedPackage"]
           }
         ]
       }
