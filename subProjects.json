@@ -13,12 +13,12 @@
           {
             "type": "post-build",
             "title": "Functional Tests",
-            "output": "functional-results"
+            "output": "functionalResults"
           },
           {
             "type": "post-build",
             "title": "Performance Tests",
-            "output": "performance-results"
+            "output": "performanceResults"
           }
         ]
       },
@@ -29,7 +29,7 @@
           {
             "title": "Checkmarx Scan",
             "inputs": ["source"],
-            "output": "checkmarx-results"
+            "output": "checkmarxResults"
           }
         ]
       },
@@ -45,7 +45,7 @@
         "actions": [
           {
             "title": "Deliver",
-            "inputs": ["versionedPackage"]
+            "inputs": [ "versionedPackage", "functionalResults", "performanceResults", "checkmarxResults" ]
           }
         ]
       }

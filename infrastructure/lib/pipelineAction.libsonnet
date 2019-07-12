@@ -13,6 +13,7 @@ function(pipelineTitle, actionTitle, inputs=null, output=null)
     owner: 'AWS',
     configuration: {
       ProjectName: ProjectName,
+      [if std.length(inputs) > 1 then 'PrimarySource']: inputs[0],
     },
     [if inputs != null then 'input_artifacts']: inputs,
     [if output != null then 'output_artifacts']: [output],
