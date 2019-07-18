@@ -105,6 +105,59 @@
     ]
   },
   {
+    "title": "Platform API Deploy",
+    "description": "Migration Platform API Deploy Configuration",
+    "stages": [
+      {
+        "type": "build"
+      },
+      {
+        "type": "action",
+        "title": "NonProd Plan",
+        "actions": [
+          {
+            "type": "post-build",
+            "title": "QA Plan"
+          },
+          {
+            "type": "post-build",
+            "title": "UAT Plan"
+          }
+        ]
+      },
+      {
+        "type": "approval",
+        "title": "NonProd Approval"
+      },
+      {
+        "type": "action",
+        "title": "NonProd Deploy",
+        "actions": [
+          {
+            "type": "post-build",
+            "title": "QA Deploy"
+          },
+          {
+            "type": "post-build",
+            "title": "UAT Deploy"
+          }
+        ]
+      },
+      {
+        "type": "post-build",
+        "title": "Prod Plan"
+      },
+      {
+        "type": "approval",
+        "title": "Prod Approval"
+      },
+      {
+        "type": "post-build",
+        "title": "Prod Deploy"
+      }
+    ]
+  },
+  {
     "title": "Test Data",
     "description": "Data for Platform and Migration testing",
     "stages": [
