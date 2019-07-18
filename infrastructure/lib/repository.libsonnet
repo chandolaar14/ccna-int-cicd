@@ -1,4 +1,5 @@
 local settings = import '../../settings.json';
+local tags = import 'tags.libsonnet';
 
 function(title, desc)
   local lowercase = std.asciiLower(title);
@@ -11,6 +12,7 @@ function(title, desc)
           repository_name: name,
           default_branch: 'master',
           description: desc,
+          tags: tags(name),
         },
       },
     },
