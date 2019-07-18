@@ -14,7 +14,7 @@
             "type": "post-build",
             "title": "Functional Tests",
             "output": "functionalResults",
-            "computeType": "BUILD_GENERAL1_MEDIUM"
+            "computeType": "BUILD_GENERAL1_LARGE"
           },
           {
             "type": "post-build",
