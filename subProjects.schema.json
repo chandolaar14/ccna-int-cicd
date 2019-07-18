@@ -33,6 +33,9 @@
         "type": {
           "type": "string",
           "enum": ["post-build"]
+        },
+        "computeType": {
+          "type": "string"
         }
       }
     },

@@ -4,7 +4,7 @@ local pipeCase = import 'pipeCase.libsonnet';
 local snakeCase = import 'snakeCase.libsonnet';
 local tags = import 'tags.libsonnet';
 
-function(pipelineTitle, actionTitle)
+function(pipelineTitle, actionTitle, computeType='BUILD_GENERAL1_SMALL')
   local combined = pipelineTitle + ' ' + actionTitle;
   local key = snakeCase(combined);
   local name = pipeCase(settings.projectName + ' ' + combined);
@@ -16,7 +16,7 @@ function(pipelineTitle, actionTitle)
           name: name,
           service_role: '${aws_iam_role.codebuild.arn}',
           environment: [{
-            compute_type: 'BUILD_GENERAL1_SMALL',
+            compute_type: computeType,
             type: 'LINUX_CONTAINER',
             image: buildImage,
           }],

@@ -13,7 +13,8 @@
           {
             "type": "post-build",
             "title": "Functional Tests",
-            "output": "functionalResults"
+            "output": "functionalResults",
+            "computeType": "BUILD_GENERAL1_MEDIUM"
           },
           {
             "type": "post-build",
