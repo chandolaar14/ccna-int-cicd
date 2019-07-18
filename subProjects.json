@@ -29,7 +29,9 @@
         "actions": [
           {
             "title": "Checkmarx Scan",
-            "inputs": ["source"],
+            "inputs": [
+              "source"
+            ],
             "output": "checkmarxResults"
           }
         ]
@@ -46,7 +48,12 @@
         "actions": [
           {
             "title": "Deliver",
-            "inputs": [ "versionedPackage", "functionalResults", "performanceResults", "checkmarxResults" ]
+            "inputs": [
+              "versionedPackage",
+              "functionalResults",
+              "performanceResults",
+              "checkmarxResults"
+            ]
           }
         ]
       }
@@ -60,36 +67,24 @@
         "type": "build"
       },
       {
-        "type": "action",
-        "title": "NonProd Plan",
-        "actions": [
-          {
-            "type": "post-build",
-            "title": "QA Plan"
-          },
-          {
-            "type": "post-build",
-            "title": "UAT Plan"
-          }
-        ]
+        "type": "post-build",
+        "title": "QA Plan"
+      },
+      {
+        "type": "post-build",
+        "title": "QA Deploy"
+      },
+      {
+        "type": "post-build",
+        "title": "UAT Plan"
       },
       {
         "type": "approval",
-        "title": "NonProd Approval"
+        "title": "UAT Approval"
       },
       {
-        "type": "action",
-        "title": "NonProd Deploy",
-        "actions": [
-          {
-            "type": "post-build",
-            "title": "QA Deploy"
-          },
-          {
-            "type": "post-build",
-            "title": "UAT Deploy"
-          }
-        ]
+        "type": "post-build",
+        "title": "UAT Deploy"
       },
       {
         "type": "post-build",
@@ -150,7 +145,9 @@
         "actions": [
           {
             "title": "Deliver",
-            "inputs": ["versionedPackage"]
+            "inputs": [
+              "versionedPackage"
+            ]
           }
         ]
       }
