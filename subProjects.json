@@ -64,31 +64,32 @@
     "description": "Account Infrastructure",
     "stages": [
       {
-        "type": "build"
-      },
-      {
-        "type": "post-build",
-        "title": "NonProd Plan"
+        "type": "single-action",
+        "title": "NonProd Plan",
+        "input": "source"
       },
       {
         "type": "approval",
         "title": "NonProd Approval"
       },
       {
-        "type": "post-build",
-        "title": "NonProd Deploy"
+        "type": "single-action",
+        "title": "NonProd Deploy",
+        "input": "source"
       },
       {
-        "type": "post-build",
-        "title": "Prod Plan"
+        "type": "single-action",
+        "title": "Prod Plan",
+        "input": "source"
       },
       {
         "type": "approval",
         "title": "Prod Approval"
       },
       {
-        "type": "post-build",
-        "title": "Prod Deploy"
+        "type": "single-action",
+        "title": "Prod Deploy",
+        "input": "source"
       }
     ]
   },
