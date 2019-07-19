@@ -67,16 +67,20 @@
         "type": "build"
       },
       {
-        "type": "post-build",
-        "title": "QA Plan"
+        "type": "single-action",
+        "title": "QA Plan",
+        "input": "buildPackage",
+        "output": "qaPlan"
       },
       {
         "type": "post-build",
         "title": "QA Deploy"
       },
       {
-        "type": "post-build",
-        "title": "UAT Plan"
+        "type": "single-action",
+        "title": "UAT Plan",
+        "input": "buildPackage",
+        "output": "uatPlan"
       },
       {
         "type": "approval",
@@ -87,8 +91,10 @@
         "title": "UAT Deploy"
       },
       {
-        "type": "post-build",
-        "title": "Prod Plan"
+        "type": "single-action",
+        "title": "Prod Plan",
+        "input": "buildPackage",
+        "output": "prodPlan"
       },
       {
         "type": "approval",
