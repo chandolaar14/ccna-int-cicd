@@ -60,6 +60,39 @@
     ]
   },
   {
+    "title": "Account Infrastructure",
+    "description": "Account Infrastructure",
+    "stages": [
+      {
+        "type": "build"
+      },
+      {
+        "type": "post-build",
+        "title": "NonProd Plan"
+      },
+      {
+        "type": "approval",
+        "title": "NonProd Approval"
+      },
+      {
+        "type": "post-build",
+        "title": "NonProd Deploy"
+      },
+      {
+        "type": "post-build",
+        "title": "Prod Plan"
+      },
+      {
+        "type": "approval",
+        "title": "Prod Approval"
+      },
+      {
+        "type": "post-build",
+        "title": "Prod Deploy"
+      }
+    ]
+  },
+  {
     "title": "Platform Deploy",
     "description": "Migration Platform Deploy Configuration",
     "stages": [
