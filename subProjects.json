@@ -246,9 +246,6 @@
         "title": "Plan"
       },
       {
-        "type": "approval"
-      },
-      {
         "type": "post-build",
         "title": "Deploy"
       }
