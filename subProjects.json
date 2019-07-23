@@ -210,6 +210,10 @@
       },
       {
         "type": "post-build",
+        "title": "QA Integration Test"
+      },
+      {
+        "type": "post-build",
         "title": "UAT Plan"
       },
       {
@@ -219,6 +223,10 @@
       {
         "type": "post-build",
         "title": "UAT Deploy"
+      },
+      {
+        "type": "post-build",
+        "title": "UAT Integration Test"
       },
       {
         "type": "post-build",
