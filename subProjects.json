@@ -210,11 +210,6 @@
       },
       {
         "type": "post-build",
-        "title": "QA Integration Test",
-        "vpc": true
-      },
-      {
-        "type": "post-build",
         "title": "UAT Plan"
       },
       {
@@ -224,11 +219,6 @@
       {
         "type": "post-build",
         "title": "UAT Deploy"
-      },
-      {
-        "type": "post-build",
-        "title": "UAT Integration Test",
-        "vpc": true
       },
       {
         "type": "post-build",
