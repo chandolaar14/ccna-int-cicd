@@ -80,6 +80,9 @@
         "type": {
           "type": "string",
           "enum": ["post-build"]
+        },
+        "vpc": {
+          "type": "boolean"
         }
       }
     },

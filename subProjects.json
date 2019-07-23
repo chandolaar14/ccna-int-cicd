@@ -210,7 +210,8 @@
       },
       {
         "type": "post-build",
-        "title": "QA Integration Test"
+        "title": "QA Integration Test",
+        "vpc": true
       },
       {
         "type": "post-build",
@@ -226,7 +227,8 @@
       },
       {
         "type": "post-build",
-        "title": "UAT Integration Test"
+        "title": "UAT Integration Test",
+        "vpc": true
       },
       {
         "type": "post-build",
