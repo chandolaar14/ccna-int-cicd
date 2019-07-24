@@ -17,13 +17,5 @@
   "docker": {
     "tag": "int-build",
     "version": "1.0.9"
-  },
-  "networking": {
-    "vpcId": "vpc-049f54b9afd29e393",
-    "subnetIds": [ "subnet-0779c81a49b38053e" ],
-    "securityGroupIds": [ "sg-0ab9fbd7b00c3ad30" ],
-    "ingressCIDRs": [
-      "10.0.0.0/8"
-    ],
   }
 }

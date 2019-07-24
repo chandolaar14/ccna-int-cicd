@@ -4,8 +4,7 @@ local pipeCase = import 'pipeCase.libsonnet';
 local snakeCase = import 'snakeCase.libsonnet';
 local tags = import 'tags.libsonnet';
 
-
-function(pipelineTitle, actionTitle, computeType='BUILD_GENERAL1_SMALL', vpc=false)
+function(pipelineTitle, actionTitle, computeType='BUILD_GENERAL1_SMALL')
   local combined = pipelineTitle + ' ' + actionTitle;
   local key = snakeCase(combined);
   local name = pipeCase(settings.projectName + ' ' + combined);
@@ -29,11 +28,6 @@ function(pipelineTitle, actionTitle, computeType='BUILD_GENERAL1_SMALL', vpc=fal
             type: 'CODEPIPELINE',
           }],
           tags: tags(name),
-          vpc_config: if vpc then {
-            vpc_id: settings.networking.vpcId,
-            subnets: settings.networking.subnetIds,
-            security_group_ids: settings.networking.securityGroupIds
-          }
         },
       },
     },

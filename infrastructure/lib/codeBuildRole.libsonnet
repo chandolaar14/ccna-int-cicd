@@ -38,19 +38,6 @@ local tags = import 'tags.libsonnet';
           ],
           resources: ['*'],
         }, {
-          // These are needed for connecting builds to a VPC
-          actions: [
-            'ec2:CreateNetworkInterface',
-            'ec2:CreateNetworkInterfacePermission',
-            'ec2:DescribeDhcpOptions',
-            'ec2:DescribeNetworkInterfaces',
-            'ec2:DeleteNetworkInterface',
-            'ec2:DescribeSubnets',
-            'ec2:DescribeSecurityGroups',
-            'ec2:DescribeVpcs',
-          ],
-          resources: ['*'],
-        }, {
           actions: [
             's3:PutObject',
             's3:GetObject',
