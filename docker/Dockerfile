@@ -12,7 +12,7 @@ RUN apk add --no-cache nodejs
 RUN apk add --no-cache nodejs-npm
 RUN apk add --no-cache git
 RUN apk add --no-cache python py-pip && \
-    pip install awscli
+    pip install awscli==1.16.200
 RUN apk add --no-cache curl unzip && \
     curl https://releases.hashicorp.com/terraform/0.11.14/terraform_0.11.14_linux_amd64.zip --output /tmp/terraform.zip && \
     cd /tmp && \
