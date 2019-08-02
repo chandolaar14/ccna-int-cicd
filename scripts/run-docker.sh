@@ -16,7 +16,7 @@ docker build \
     --build-arg NEW_USER_ID=$UID \
     .
 
-docker run -it $tag:$version bash
+docker run -v /var/run/docker.sock:/var/run/docker.sock -it $tag:$version bash
 
 popd
 

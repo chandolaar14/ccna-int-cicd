@@ -27,6 +27,7 @@ RUN apk add --no-cache outils-md5
 RUN apk add --no-cache curl
 RUN apk add --no-cache openjdk8-jre
 RUN apk add --no-cache jsonnet --repository=http://dl-cdn.alpinelinux.org/alpine/edge/testing
+RUN apk add --no-cache docker
 
 RUN mkdir /working && chown builder /working
 
@@ -43,3 +44,11 @@ RUN chmod a+x /working/CxConsolePlugin-8.80.0/runCxConsole.sh
 RUN rm CxConsolePlugin-8.80.0.zip
 
 ENV PATH ~/flyway-5.2.4:/go/bin:$PATH
+
+#USER root
+#COPY .aws /root/.aws
+#COPY setup_aws_profile.sh ./
+#RUN mkdir -p /working/ccna-int-platform
+#RUN chown -R builder /working/ccna-int-platform
+#COPY ccna-int-platform ./ccna-int-platform
+#RUN chown -R builder /working/ccna-int-platform
