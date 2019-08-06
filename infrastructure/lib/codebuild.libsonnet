@@ -4,11 +4,13 @@ local pipeCase = import 'pipeCase.libsonnet';
 local snakeCase = import 'snakeCase.libsonnet';
 local tags = import 'tags.libsonnet';
 
-function(pipelineTitle, actionTitle, computeType='BUILD_GENERAL1_SMALL')
+function(pipelineTitle, actionTitle, environment=null)
   local combined = pipelineTitle + ' ' + actionTitle;
   local key = snakeCase(combined);
   local name = pipeCase(settings.projectName + ' ' + combined);
   local buildspec = 'buildspec-' + pipeCase(actionTitle) + '.yml';
+  local computeType = if environment == null then 'BUILD_GENERAL1_SMALL' else if std.objectHas(environment, 'computeType') then environment.computeType else 'BUILD_GENERAL1_SMALL';
+  local privilegedMode = if environment == null then false else if std.objectHas(environment, 'privilegedMode') then environment.privilegedMode else false;
   {
     resource: {
       aws_codebuild_project: {
@@ -19,6 +21,7 @@ function(pipelineTitle, actionTitle, computeType='BUILD_GENERAL1_SMALL')
             compute_type: computeType,
             type: 'LINUX_CONTAINER',
             image: buildImage,
+            privileged_mode: privilegedMode,
           }],
           source: [{
             type: 'CODEPIPELINE',

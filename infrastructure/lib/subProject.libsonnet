@@ -60,7 +60,7 @@ local nonBuildCodebuilds(title, stages) =
 local nestedCodebuilds(title, stages) =
   merge([
     codebuild(title, stageAction.title, 
-      computeType=if std.objectHas(stageAction, 'computeType') then stageAction.computeType else 'BUILD_GENERAL1_SMALL'
+      environment=if std.objectHas(stageAction, 'environment') then stageAction.environment
     )
     for stage in stages
     if stage.type == 'action'

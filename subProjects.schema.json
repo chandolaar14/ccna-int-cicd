@@ -34,8 +34,13 @@
           "type": "string",
           "enum": ["post-build"]
         },
-        "computeType": {
-          "type": "string"
+        "environment": {
+          "computeType": {
+            "type": "string"
+          },
+          "privilegedMode": {
+            "type": "boolean"
+          }
         }
       }
     },
