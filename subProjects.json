@@ -23,7 +23,11 @@
           {
             "type": "post-build",
             "title": "Performance Tests",
-            "output": "performanceResults"
+            "output": "performanceResults",
+            "environment":
+            {
+              "privilegedMode": true
+            }
           }
         ]
       },
