@@ -116,7 +116,11 @@
       },
       {
         "type": "post-build",
-        "title": "QA Deploy"
+        "title": "QA Deploy",
+        "environment":
+        {
+          "privilegedMode": true
+        }
       },
       {
         "type": "single-action",
@@ -130,7 +134,12 @@
       },
       {
         "type": "post-build",
-        "title": "UAT Deploy"
+        "title": "UAT Deploy",
+        "environment":
+        {
+          "privilegedMode": true
+        }
+
       },
       {
         "type": "single-action",
@@ -144,7 +153,12 @@
       },
       {
         "type": "post-build",
-        "title": "Prod Deploy"
+        "title": "Prod Deploy",
+        "environment":
+        {
+          "privilegedMode": true
+        }
+
       }
     ]
   },
@@ -264,10 +278,10 @@
       {
         "type": "post-build",
         "title": "Deploy",
-            "environment":
-            {
-              "privilegedMode": true
-            }
+        "environment":
+        {
+          "privilegedMode": true
+        }
       }
     ]
   },
