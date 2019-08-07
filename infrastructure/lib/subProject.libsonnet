@@ -52,7 +52,9 @@ local buildCodebuilds(title, stages) =
 
 local nonBuildCodebuilds(title, stages) =
   merge([
-    codebuild(title, stage.title)
+    codebuild(title, stage.title,
+      environment=if std.objectHas(stage, 'environment') then stage.environment
+    )
     for stage in stages
     if stage.type != 'build' && stage.type != 'approval' && stage.type != 'action'
   ]);

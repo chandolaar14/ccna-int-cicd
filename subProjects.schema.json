@@ -89,6 +89,18 @@
         "type": {
           "type": "string",
           "enum": ["post-build"]
+        },
+        "environment": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "computeType": {
+              "type": "string"
+            },
+            "privilegedMode": {
+              "type": "boolean"
+            }
+          }
         }
       }
     },

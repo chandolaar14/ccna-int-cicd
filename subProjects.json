@@ -263,7 +263,11 @@
       },
       {
         "type": "post-build",
-        "title": "Deploy"
+        "title": "Deploy",
+            "environment":
+            {
+              "privilegedMode": true
+            }
       }
     ]
   },
