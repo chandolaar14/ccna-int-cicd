@@ -2,7 +2,7 @@ local settings = import '../../settings.json';
 local resourceName = import 'resourceName.libsonnet';
 
 function(name)
-  [{
+  {
     ApplicationCode: settings.applicationCode,
     application_id: settings.applicationId,
     Name: name,
@@ -18,4 +18,4 @@ function(name)
     puppet_role: 'NA',
     security_tier: '2',
     terraform_managed: 'managed',
-  }]
+  }

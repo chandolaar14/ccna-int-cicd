@@ -15,8 +15,7 @@ plan:
 	${JSONNET} index.tf.jsonnet > index.tf.json
 	rm -rf .terraform
 	${TF} init
-	${TF} plan -out plan
-	${TF} plan plan
+	${TF} plan
 
 deploy:
 	${JSONNET} index.tf.jsonnet > index.tf.json
