@@ -349,7 +349,7 @@
   },
   {
     "title": "Config UI Demo",
-    "description": "Configuration and Deployment of a Configuration UI Demo Environment",
+    "description": "Configuration and Deployment for the Configuration UI Demo Environment",
     "stages": [
       {
         "type": "build"
@@ -369,8 +369,8 @@
     ]
   },
   {
-    "title": "Configuration UI Deploy",
-    "description": "Configuration UI Deploy",
+    "title": "Config UI Deploy",
+    "description": "Deployment for the Configuration UI for managed environments (QA, UAT, Prod)",
     "stages": [
       {
         "type": "build"
