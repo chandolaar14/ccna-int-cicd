@@ -288,5 +288,144 @@
   {
     "title": "Migration Utils",
     "description": "Migration configuration generation utilities"
+  },
+  {
+    "title": "Config UI",
+    "description": "Config UI Code",
+    "stages": [
+      {
+        "type": "build"
+      },
+      {
+        "type": "action",
+        "title": "Test",
+        "actions": [
+          {
+            "type": "post-build",
+            "title": "Functional Tests",
+            "output": "functionalResults",
+            "environment":
+            {
+              "computeType": "BUILD_GENERAL1_MEDIUM",
+              "privilegedMode": true
+            }
+          }
+        ]
+      },
+      {
+        "type": "action",
+        "title": "Security Test",
+        "actions": [
+          {
+            "title": "Checkmarx Scan",
+            "inputs": [
+              "source"
+            ],
+            "output": "checkmarxResults"
+          }
+        ]
+      },
+      {
+        "type": "single-action",
+        "title": "Tag",
+        "input": "buildPackage",
+        "output": "versionedPackage"
+      },
+      {
+        "type": "action",
+        "title": "Deliver",
+        "actions": [
+          {
+            "title": "Deliver",
+            "inputs": [
+              "versionedPackage",
+              "functionalResults",
+              "checkmarxResults"
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "title": "Config UI Demo",
+    "description": "Configuration and Deployment of a Configuration UI Demo Environment",
+    "stages": [
+      {
+        "type": "build"
+      },
+      {
+        "type": "post-build",
+        "title": "Plan"
+      },
+      {
+        "type": "post-build",
+        "title": "Deploy",
+        "environment":
+        {
+          "privilegedMode": true
+        }
+      }
+    ]
+  },
+  {
+    "title": "Configuration UI Deploy",
+    "description": "Configuration UI Deploy",
+    "stages": [
+      {
+        "type": "build"
+      },
+      {
+        "type": "single-action",
+        "title": "QA Plan",
+        "input": "buildPackage",
+        "output": "qaPlan"
+      },
+      {
+        "type": "post-build",
+        "title": "QA Deploy",
+        "environment":
+        {
+          "privilegedMode": true
+        }
+      },
+      {
+        "type": "single-action",
+        "title": "UAT Plan",
+        "input": "buildPackage",
+        "output": "uatPlan"
+      },
+      {
+        "type": "approval",
+        "title": "UAT Approval"
+      },
+      {
+        "type": "post-build",
+        "title": "UAT Deploy",
+        "environment":
+        {
+          "privilegedMode": true
+        }
+
+      },
+      {
+        "type": "single-action",
+        "title": "Prod Plan",
+        "input": "buildPackage",
+        "output": "prodPlan"
+      },
+      {
+        "type": "approval",
+        "title": "Prod Approval"
+      },
+      {
+        "type": "post-build",
+        "title": "Prod Deploy",
+        "environment":
+        {
+          "privilegedMode": true
+        }
+      }
+    ]
   }
 ]
