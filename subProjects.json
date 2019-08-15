@@ -377,39 +377,6 @@
       },
       {
         "type": "single-action",
-        "title": "QA Plan",
-        "input": "buildPackage",
-        "output": "qaPlan"
-      },
-      {
-        "type": "post-build",
-        "title": "QA Deploy",
-        "environment":
-        {
-          "privilegedMode": true
-        }
-      },
-      {
-        "type": "single-action",
-        "title": "UAT Plan",
-        "input": "buildPackage",
-        "output": "uatPlan"
-      },
-      {
-        "type": "approval",
-        "title": "UAT Approval"
-      },
-      {
-        "type": "post-build",
-        "title": "UAT Deploy",
-        "environment":
-        {
-          "privilegedMode": true
-        }
-
-      },
-      {
-        "type": "single-action",
         "title": "Prod Plan",
         "input": "buildPackage",
         "output": "prodPlan"
