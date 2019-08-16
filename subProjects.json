@@ -394,5 +394,9 @@
         }
       }
     ]
+  },
+  {
+    "title": "Networkmon",
+    "description": "Network monitoring tool"
   }
 ]
