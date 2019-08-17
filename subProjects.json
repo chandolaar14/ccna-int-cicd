@@ -370,24 +370,24 @@
   },
   {
     "title": "Config UI Deploy",
-    "description": "Deployment for the Configuration UI for managed environments (QA, UAT, Prod)",
+    "description": "Deployment for the Configuration UI",
     "stages": [
       {
         "type": "build"
       },
       {
         "type": "single-action",
-        "title": "Prod Plan",
+        "title": "Main Plan",
         "input": "buildPackage",
-        "output": "prodPlan"
+        "output": "mainPlan"
       },
       {
         "type": "approval",
-        "title": "Prod Approval"
+        "title": "Main Approval"
       },
       {
         "type": "post-build",
-        "title": "Prod Deploy",
+        "title": "Main Deploy",
         "environment":
         {
           "privilegedMode": true
