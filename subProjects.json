@@ -248,10 +248,6 @@
       },
       {
         "type": "post-build",
-        "title": "UAT Integration Test"
-      },
-      {
-        "type": "post-build",
         "title": "Prod Plan"
       },
       {
