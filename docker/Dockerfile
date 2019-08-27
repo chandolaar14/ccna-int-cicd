@@ -18,7 +18,8 @@ RUN apk add --no-cache curl unzip && \
     ln -s ~/.tfenv/bin/* /usr/local/bin && \
     tfenv install 0.11.14 && \
     tfenv install 0.12.6 && \
-    tfenv use 0.11.14
+    tfenv install 0.12.7 && \
+    tfenv use 0.12.6
 RUN apk add --no-cache jq
 RUN apk add --no-cache zip
 RUN apk add --no-cache openssh

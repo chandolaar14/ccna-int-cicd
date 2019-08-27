@@ -1,6 +1,6 @@
 #!/bin/bash
 set -ve
-BUILDER_IMAGE=362550720160.dkr.ecr.us-west-2.amazonaws.com/int-build:1.0.3
+BUILDER_IMAGE=362550720160.dkr.ecr.us-west-2.amazonaws.com/int-build:1.0.13
 
 test -t 1 && USE_TTY="-t"
 
