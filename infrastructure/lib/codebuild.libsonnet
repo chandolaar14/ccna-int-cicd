@@ -9,7 +9,7 @@ function(pipelineTitle, actionTitle, environment=null)
   local key = snakeCase(combined);
   local name = pipeCase(settings.projectName + ' ' + combined);
   local buildspec = 'buildspec-' + pipeCase(actionTitle) + '.yml';
-  local computeType = if environment == null then 'BUILD_GENERAL1_SMALL' else if std.objectHas(environment, 'computeType') then environment.computeType else 'BUILD_GENERAL1_SMALL';
+  local computeType = if environment == null then 'BUILD_GENERAL1_MEDIUM' else if std.objectHas(environment, 'computeType') then environment.computeType else 'BUILD_GENERAL1_MEDIUM';
   local privilegedMode = if environment == null then false else if std.objectHas(environment, 'privilegedMode') then environment.privilegedMode else false;
   {
     resource: {

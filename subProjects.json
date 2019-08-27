@@ -16,7 +16,7 @@
             "output": "functionalResults",
             "environment":
             {
-              "computeType": "BUILD_GENERAL1_MEDIUM",
+              "computeType": "BUILD_GENERAL1_LARGE",
               "privilegedMode": true
             }
           },
@@ -26,6 +26,7 @@
             "output": "performanceResults",
             "environment":
             {
+              "computeType": "BUILD_GENERAL1_LARGE",
               "privilegedMode": true
             }
           }
@@ -302,7 +303,7 @@
             "output": "functionalResults",
             "environment":
             {
-              "computeType": "BUILD_GENERAL1_MEDIUM",
+              "computeType": "BUILD_GENERAL1_LARGE",
               "privilegedMode": true
             }
           }
