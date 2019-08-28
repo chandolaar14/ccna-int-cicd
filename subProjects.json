@@ -29,6 +29,16 @@
               "computeType": "BUILD_GENERAL1_LARGE",
               "privilegedMode": true
             }
+          },
+          {
+            "type": "post-build",
+            "title": "DR Tests",
+            "output": "drResults",
+            "environment":
+            {
+              "computeType": "BUILD_GENERAL1_LARGE",
+              "privilegedMode": true
+            }
           }
         ]
       },
