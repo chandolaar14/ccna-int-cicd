@@ -97,13 +97,17 @@
         "input": "source"
       },
       {
+        "type": "approval",
+        "title": "Prod Approval"
+      },
+      {
         "type": "single-action",
         "title": "Prod Plan",
         "input": "source"
       },
       {
         "type": "approval",
-        "title": "Prod Approval"
+        "title": "Prod Deploy Approval"
       },
       {
         "type": "single-action",
@@ -153,6 +157,10 @@
 
       },
       {
+        "type": "approval",
+        "title": "Prod Approval"
+      },
+      {
         "type": "single-action",
         "title": "Prod Plan",
         "input": "buildPackage",
@@ -160,7 +168,7 @@
       },
       {
         "type": "approval",
-        "title": "Prod Approval"
+        "title": "Prod Deploy Approval"
       },
       {
         "type": "post-build",
@@ -258,12 +266,16 @@
         "title": "UAT Deploy"
       },
       {
+        "type": "approval",
+        "title": "Prod Approval"
+      },
+      {
         "type": "post-build",
         "title": "Prod Plan"
       },
       {
         "type": "approval",
-        "title": "Prod Approval"
+        "title": "Prod Deploy Approval"
       },
       {
         "type": "post-build",
