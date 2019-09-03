@@ -98,7 +98,7 @@
       },
       {
         "type": "approval",
-        "title": "Prod Approval"
+        "title": "Prod Plan Approval"
       },
       {
         "type": "single-action",
@@ -107,7 +107,7 @@
       },
       {
         "type": "approval",
-        "title": "Prod Deploy Approval"
+        "title": "Prod Approval"
       },
       {
         "type": "single-action",
@@ -158,7 +158,7 @@
       },
       {
         "type": "approval",
-        "title": "Prod Approval"
+        "title": "Prod Plan Approval"
       },
       {
         "type": "single-action",
@@ -168,7 +168,7 @@
       },
       {
         "type": "approval",
-        "title": "Prod Deploy Approval"
+        "title": "Prod Approval"
       },
       {
         "type": "post-build",
@@ -267,7 +267,7 @@
       },
       {
         "type": "approval",
-        "title": "Prod Approval"
+        "title": "Prod Plan Approval"
       },
       {
         "type": "post-build",
@@ -275,7 +275,7 @@
       },
       {
         "type": "approval",
-        "title": "Prod Deploy Approval"
+        "title": "Prod Approval"
       },
       {
         "type": "post-build",
