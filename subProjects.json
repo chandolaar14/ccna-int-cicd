@@ -71,6 +71,7 @@
               "versionedPackage",
               "functionalResults",
               "performanceResults",
+              "drResults",
               "checkmarxResults"
             ]
           }
