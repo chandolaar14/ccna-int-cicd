@@ -306,6 +306,38 @@
     ]
   },
   {
+    "title": "Platform Load Test",
+    "description": "Configuration and deployment of a platform load test environment",
+    "stages": [
+      {
+        "type": "build"
+      },
+      {
+        "type": "post-build",
+        "title": "Plan"
+      },
+      {
+        "type": "post-build",
+        "title": "Deploy",
+        "environment":
+        {
+          "privilegedMode": true
+        }
+      },
+      {
+        "type": "action",
+        "title": "Test",
+        "actions": [
+          {
+            "type": "post-build",
+            "title": "Load Tests",
+            "output": "loadResults"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "title": "Migration Utils",
     "description": "Migration configuration generation utilities"
   },
