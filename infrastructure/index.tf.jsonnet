@@ -8,6 +8,7 @@ local artifactStore = import 'lib/artifactStore.libsonnet';
 local codeBuildRole = import 'lib/codeBuildRole.libsonnet';
 local pipelineRole = import 'lib/pipelineRole.libsonnet';
 local platformFailureAlert = import 'lib/platformFailureAlert.libsonnet';
+local pipelineSchedule = import 'lib/pipelineSchedule.libsonnet';
 local releaseBucket = import 'lib/releaseBucket.libsonnet';
 local secretsManager = import 'lib/secretsManager.libsonnet';
 
@@ -22,6 +23,7 @@ merge([
   secretsManager,
   codeBuildRole,
   pipelineRole,
+  pipelineSchedule,
   platformFailureAlert,
 ] + [
   subProject(subProjectDefinition.title, subProjectDefinition.description, subProjectDefinition.stages)

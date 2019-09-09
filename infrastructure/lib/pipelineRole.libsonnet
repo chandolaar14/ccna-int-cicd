@@ -19,6 +19,7 @@ local tags = import 'tags.libsonnet';
           actions: [
             'codebuild:BatchGetBuilds',
             'codebuild:StartBuild',
+            'codepipeline:StartPipelineExecution',
           ],
           resources: ['*'],
         }, {
