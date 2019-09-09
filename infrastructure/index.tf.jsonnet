@@ -23,7 +23,7 @@ merge([
   secretsManager,
   codeBuildRole,
   pipelineRole,
-  pipelineSchedule,
+#  pipelineSchedule,
   platformFailureAlert,
 ] + [
   subProject(subProjectDefinition.title, subProjectDefinition.description, subProjectDefinition.stages)
