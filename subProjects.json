@@ -43,19 +43,6 @@
         ]
       },
       {
-        "type": "action",
-        "title": "Security Test",
-        "actions": [
-          {
-            "title": "Checkmarx Scan",
-            "inputs": [
-              "source"
-            ],
-            "output": "checkmarxResults"
-          }
-        ]
-      },
-      {
         "type": "single-action",
         "title": "Tag",
         "input": "buildPackage",
@@ -71,8 +58,7 @@
               "versionedPackage",
               "functionalResults",
               "performanceResults",
-              "drResults",
-              "checkmarxResults"
+              "drResults"              
             ]
           }
         ]
