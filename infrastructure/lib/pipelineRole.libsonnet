@@ -47,7 +47,10 @@ local tags = import 'tags.libsonnet';
           actions: ['sts:AssumeRole'],
           principals: [{
             type: 'Service',
-            identifiers: ['codepipeline.amazonaws.com'],
+            identifiers: [
+              'codepipeline.amazonaws.com',
+              'events.amazonaws.com',
+            ],
           }],
         }],
       },

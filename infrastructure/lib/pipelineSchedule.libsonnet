@@ -26,4 +26,4 @@ local schedulePipelineCloudWatchEvent(rateInMinutes) =
     },
   };
 
-merge([schedulePipelineCloudWatchEvent(5)])
+merge([schedulePipelineCloudWatchEvent(180)])
