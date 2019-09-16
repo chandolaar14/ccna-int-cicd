@@ -4,7 +4,7 @@ local pipeCase = import 'pipeCase.libsonnet';
 local snakeCase = import 'snakeCase.libsonnet';
 local tags = import 'tags.libsonnet';
 
-function(pipelineTitle, actionTitle, environment=null)
+function(pipelineTitle, actionTitle, environment=null, timeout=60)
   local combined = pipelineTitle + ' ' + actionTitle;
   local key = snakeCase(combined);
   local name = pipeCase(settings.projectName + ' ' + combined);
@@ -17,6 +17,7 @@ function(pipelineTitle, actionTitle, environment=null)
         [key]: {
           name: name,
           service_role: '${aws_iam_role.codebuild.arn}',
+          build_timeout: timeout,
           environment: [{
             compute_type: computeType,
             type: 'LINUX_CONTAINER',

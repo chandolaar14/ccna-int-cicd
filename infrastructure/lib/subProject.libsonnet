@@ -53,7 +53,8 @@ local buildCodebuilds(title, stages) =
 local nonBuildCodebuilds(title, stages) =
   merge([
     codebuild(title, stage.title,
-      environment=if std.objectHas(stage, 'environment') then stage.environment
+      environment=if std.objectHas(stage, 'environment') then stage.environment,
+      timeout=if std.objectHas(stage, 'timeout') then stage.timeout,
     )
     for stage in stages
     if stage.type != 'build' && stage.type != 'approval' && stage.type != 'action'
@@ -62,7 +63,8 @@ local nonBuildCodebuilds(title, stages) =
 local nestedCodebuilds(title, stages) =
   merge([
     codebuild(title, stageAction.title, 
-      environment=if std.objectHas(stageAction, 'environment') then stageAction.environment
+      environment=if std.objectHas(stageAction, 'environment') then stageAction.environment,
+      timeout=if std.objectHas(stageAction, 'timeout') then stageAction.timeout
     )
     for stage in stages
     if stage.type == 'action'

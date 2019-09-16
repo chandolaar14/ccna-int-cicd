@@ -317,7 +317,8 @@
           {
             "type": "post-build",
             "title": "Load Tests",
-            "output": "loadResults"
+            "output": "loadResults",
+            "timeout": 120
           }
         ]
       }
