@@ -26,4 +26,4 @@ local schedulePipelineCloudWatchEvent(rateInMinutes) =
     },
   };
 
-merge([schedulePipelineCloudWatchEvent(180)])
+merge([schedulePipelineCloudWatchEvent(720)]) # 12 hours

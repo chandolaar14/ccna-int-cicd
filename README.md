@@ -1,6 +1,7 @@
 This is the CICD repository for the CCNA Integration Platform (INT) project.
 
-Project requirements:
+## Project requirements:
+* terraform
 * make
 Default on MacOS
 
@@ -9,3 +10,11 @@ Default on MacOS
 
 * Set AWS_PROFILE
 > export AWS_PROFILE=CCNA_INTSRVC_NonProd_INT_AppAdmin
+
+## Deploy Terraform:
+
+```
+make plan
+# verify plan output
+make deploy
+```
