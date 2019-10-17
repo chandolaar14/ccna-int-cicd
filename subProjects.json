@@ -14,8 +14,7 @@
             "type": "post-build",
             "title": "Functional Tests",
             "output": "functionalResults",
-            "environment":
-            {
+            "environment": {
               "computeType": "BUILD_GENERAL1_LARGE",
               "privilegedMode": true
             }
@@ -24,8 +23,7 @@
             "type": "post-build",
             "title": "Performance Tests",
             "output": "performanceResults",
-            "environment":
-            {
+            "environment": {
               "computeType": "BUILD_GENERAL1_LARGE",
               "privilegedMode": true
             }
@@ -34,8 +32,7 @@
             "type": "post-build",
             "title": "DR Tests",
             "output": "drResults",
-            "environment":
-            {
+            "environment": {
               "computeType": "BUILD_GENERAL1_LARGE",
               "privilegedMode": true
             }
@@ -58,7 +55,7 @@
               "versionedPackage",
               "functionalResults",
               "performanceResults",
-              "drResults"              
+              "drResults"
             ]
           }
         ]
@@ -119,8 +116,7 @@
       {
         "type": "post-build",
         "title": "QA Deploy",
-        "environment":
-        {
+        "environment": {
           "privilegedMode": true
         }
       },
@@ -137,11 +133,9 @@
       {
         "type": "post-build",
         "title": "UAT Deploy",
-        "environment":
-        {
+        "environment": {
           "privilegedMode": true
         }
-
       },
       {
         "type": "approval",
@@ -160,11 +154,9 @@
       {
         "type": "post-build",
         "title": "Prod Deploy",
-        "environment":
-        {
+        "environment": {
           "privilegedMode": true
         }
-
       }
     ]
   },
@@ -213,9 +205,7 @@
         "actions": [
           {
             "title": "Deliver",
-            "inputs": [
-              "versionedPackage"
-            ]
+            "inputs": ["versionedPackage"]
           }
         ]
       }
@@ -284,8 +274,7 @@
       {
         "type": "post-build",
         "title": "Deploy",
-        "environment":
-        {
+        "environment": {
           "privilegedMode": true
         }
       }
@@ -305,8 +294,7 @@
       {
         "type": "post-build",
         "title": "Deploy",
-        "environment":
-        {
+        "environment": {
           "privilegedMode": true
         }
       },
@@ -343,8 +331,7 @@
             "type": "post-build",
             "title": "Functional Tests",
             "output": "functionalResults",
-            "environment":
-            {
+            "environment": {
               "computeType": "BUILD_GENERAL1_LARGE",
               "privilegedMode": true
             }
@@ -357,9 +344,7 @@
         "actions": [
           {
             "title": "Checkmarx Scan",
-            "inputs": [
-              "source"
-            ],
+            "inputs": ["source"],
             "output": "checkmarxResults"
           }
         ]
@@ -400,8 +385,7 @@
       {
         "type": "post-build",
         "title": "Deploy",
-        "environment":
-        {
+        "environment": {
           "privilegedMode": true
         }
       }
@@ -427,8 +411,7 @@
       {
         "type": "post-build",
         "title": "Main Deploy",
-        "environment":
-        {
+        "environment": {
           "privilegedMode": true
         }
       }
@@ -437,5 +420,29 @@
   {
     "title": "Networkmon",
     "description": "Network monitoring tool"
+  },
+  {
+    "title": "Platform Deploy IRM",
+    "description": "Configuration and deployment of the IRM environment",
+    "stages": [
+      {
+        "type": "build"
+      },
+      {
+        "type": "post-build",
+        "title": "Plan"
+      },
+      {
+        "type": "approval",
+        "title": "IRM Deployment Approval"
+      },
+      {
+        "type": "post-build",
+        "title": "Deploy",
+        "environment": {
+          "privilegedMode": true
+        }
+      }
+    ]
   }
 ]
