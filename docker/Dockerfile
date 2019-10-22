@@ -9,7 +9,7 @@ RUN apk add --no-cache g++
 RUN apk add --no-cache go
 RUN apk add --no-cache bash
 RUN apk add --no-cache nodejs
-RUN apk add --no-cache nodejs-npm
+RUN apk add --no-cache npm
 RUN apk add --no-cache git
 RUN apk add --no-cache python py-pip && \
     pip install awscli==1.16.221
