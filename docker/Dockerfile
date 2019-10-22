@@ -12,13 +12,13 @@ RUN apk add --no-cache nodejs
 RUN apk add --no-cache npm
 RUN apk add --no-cache git
 RUN apk add --no-cache python py-pip && \
-    pip install awscli==1.16.221
+    pip install awscli==1.16.263
 RUN apk add --no-cache curl unzip && \ 
     git clone https://github.com/tfutils/tfenv.git ~/.tfenv && \
     ln -s ~/.tfenv/bin/* /usr/local/bin && \
-    tfenv install 0.11.14 && \
     tfenv install 0.12.6 && \
     tfenv install 0.12.7 && \
+    tfenv install 0.12.12 && \
     tfenv use 0.12.6
 RUN apk add --no-cache jq
 RUN apk add --no-cache zip
