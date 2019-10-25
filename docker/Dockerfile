@@ -1,4 +1,4 @@
-FROM alpine:3.8
+FROM alpine:3.10.3
 
 ARG NEW_USER_ID
 RUN adduser -S -u $NEW_USER_ID builder builder

@@ -18,3 +18,12 @@ make plan
 # verify plan output
 make deploy
 ```
+
+## Updating Docker Image
+
+```
+# make necessary updates to docker file
+make publish-image
+# open settings.json and set docker.version to the appropriate version
+# commit/push changes
+```
