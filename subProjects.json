@@ -17,7 +17,8 @@
             "environment": {
               "computeType": "BUILD_GENERAL1_LARGE",
               "privilegedMode": true
-            }
+            },
+            "timeout": 120
           },
           {
             "type": "post-build",
@@ -118,7 +119,8 @@
         "title": "QA Deploy",
         "environment": {
           "privilegedMode": true
-        }
+        },
+        "timeout": 120
       },
       {
         "type": "single-action",
@@ -135,7 +137,8 @@
         "title": "UAT Deploy",
         "environment": {
           "privilegedMode": true
-        }
+        },
+        "timeout": 120
       },
       {
         "type": "approval",
@@ -156,7 +159,8 @@
         "title": "Prod Deploy",
         "environment": {
           "privilegedMode": true
-        }
+        },
+        "timeout": 120
       }
     ]
   },
