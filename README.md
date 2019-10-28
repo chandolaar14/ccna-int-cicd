@@ -23,7 +23,8 @@ make deploy
 
 ```
 # make necessary updates to docker file
+# update the version in settings.json
 make publish-image
-# open settings.json and set docker.version to the appropriate version
-# commit/push changes
+# update dmake to use correct terraform
+# follow deploy plan above
 ```

@@ -4,7 +4,7 @@ local pipeCase = import 'pipeCase.libsonnet';
 local snakeCase = import 'snakeCase.libsonnet';
 local tags = import 'tags.libsonnet';
 
-function(pipelineTitle, actionTitle, environment=null, timeout=60)
+function(pipelineTitle, actionTitle, environment=null, timeout=120)
   local combined = pipelineTitle + ' ' + actionTitle;
   local key = snakeCase(combined);
   local name = pipeCase(settings.projectName + ' ' + combined);
