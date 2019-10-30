@@ -120,7 +120,7 @@
         "environment": {
           "privilegedMode": true
         },
-        "timeout": 120
+        "timeout": 240
       },
       {
         "type": "single-action",
@@ -138,7 +138,7 @@
         "environment": {
           "privilegedMode": true
         },
-        "timeout": 120
+        "timeout": 240
       },
       {
         "type": "approval",
@@ -160,7 +160,7 @@
         "environment": {
           "privilegedMode": true
         },
-        "timeout": 120
+        "timeout": 240
       }
     ]
   },
