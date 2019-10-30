@@ -14,6 +14,8 @@ Default on MacOS
 ## Deploy Terraform:
 
 ```
+# It's critical to pull the latest changes from the CICD pipeline so you don't overwrite changes that aren't local
+git pull
 make plan
 # verify plan output
 make deploy
