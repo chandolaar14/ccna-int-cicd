@@ -116,7 +116,23 @@
       },
       {
         "type": "post-build",
-        "title": "QA Deploy",
+        "title": "QA Deploy Storage",
+        "environment": {
+          "privilegedMode": true
+        },
+        "timeout": 240
+      },
+      {
+        "type": "post-build",
+        "title": "QA Deploy East",
+        "environment": {
+          "privilegedMode": true
+        },
+        "timeout": 240
+      },
+      {
+        "type": "post-build",
+        "title": "QA Deploy West",
         "environment": {
           "privilegedMode": true
         },
