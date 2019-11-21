@@ -277,7 +277,21 @@
       },
       {
         "type": "post-build",
-        "title": "Deploy",
+        "title": "Deploy Storage",
+        "environment": {
+          "privilegedMode": true
+        }
+      },
+      {
+        "type": "post-build",
+        "title": "Deploy East",
+        "environment": {
+          "privilegedMode": true
+        }
+      },
+      {
+        "type": "post-build",
+        "title": "Deploy West",
         "environment": {
           "privilegedMode": true
         }
