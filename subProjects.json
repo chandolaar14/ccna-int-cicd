@@ -146,11 +146,31 @@
       },
       {
         "type": "approval",
-        "title": "UAT Approval"
+        "title": "UAT Approval East"
       },
       {
         "type": "post-build",
-        "title": "UAT Deploy",
+        "title": "UAT Deploy Storage",
+        "environment": {
+          "privilegedMode": true
+        },
+        "timeout": 240
+      },
+      {
+        "type": "post-build",
+        "title": "UAT Deploy East",
+        "environment": {
+          "privilegedMode": true
+        },
+        "timeout": 240
+      },
+      {
+        "type": "approval",
+        "title": "UAT Approval West"
+      },
+      {
+        "type": "post-build",
+        "title": "UAT Deploy West",
         "environment": {
           "privilegedMode": true
         },
@@ -168,11 +188,31 @@
       },
       {
         "type": "approval",
-        "title": "Prod Approval"
+        "title": "Prod Approval East"
       },
       {
         "type": "post-build",
-        "title": "Prod Deploy",
+        "title": "Prod Deploy Storage",
+        "environment": {
+          "privilegedMode": true
+        },
+        "timeout": 240
+      },
+      {
+        "type": "post-build",
+        "title": "Prod Deploy East",
+        "environment": {
+          "privilegedMode": true
+        },
+        "timeout": 240
+      },
+      {
+        "type": "approval",
+        "title": "Prod Approval West"
+      },
+      {
+        "type": "post-build",
+        "title": "Prod Deploy West",
         "environment": {
           "privilegedMode": true
         },
