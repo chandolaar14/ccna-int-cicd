@@ -303,12 +303,12 @@
         "title": "UAT Deploy"
       },
       {
-        "type": "approval",
-        "title": "Prod Plan Approval"
-      },
-      {
         "type": "post-build",
         "title": "Prod Plan"
+      },
+      {
+        "type": "approval",
+        "title": "Prod Plan Approval"
       },
       {
         "type": "approval",
