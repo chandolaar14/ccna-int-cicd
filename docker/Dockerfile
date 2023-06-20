@@ -1,4 +1,4 @@
-FROM alpine:3.10.3
+FROM alpine:3.15.0
 
 ARG NEW_USER_ID
 RUN adduser -S -u $NEW_USER_ID builder builder
@@ -11,7 +11,7 @@ RUN apk add --no-cache bash
 RUN apk add --no-cache nodejs
 RUN apk add --no-cache npm
 RUN apk add --no-cache git
-RUN apk add --no-cache python py-pip && \
+RUN apk add --no-cache python3 py-pip && \
     pip install awscli==1.16.263
 RUN apk add --no-cache curl unzip && \ 
     git clone https://github.com/tfutils/tfenv.git ~/.tfenv && \
@@ -19,7 +19,8 @@ RUN apk add --no-cache curl unzip && \
     tfenv install 0.12.6 && \
     tfenv install 0.12.7 && \
     tfenv install 0.12.12 && \
-    tfenv use 0.12.6
+    tfenv install 0.13.6 && \
+    tfenv use 0.13.6
 RUN apk add --no-cache jq
 RUN apk add --no-cache zip
 RUN apk add --no-cache openssh

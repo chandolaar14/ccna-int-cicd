@@ -26,7 +26,8 @@ region=$(jq -r .region ../settings.json)
 ecrUrl=$accountId.dkr.ecr.$region.amazonaws.com
 
 # build the docker image
-docker build \
+docker buildx build --load \
+    --platform=linux/amd64 \
     -t $tag:$version \
     --build-arg NEW_USER=$USER \
     --build-arg NEW_USER_ID=$UID \
@@ -35,7 +36,10 @@ docker build \
 docker tag $tag:$version $ecrUrl/$tag:$version
 docker tag $tag:$version $ecrUrl/$tag:latest
 # push the tagged image
-$(aws ecr get-login --no-include-email)
+# $(aws ecr get-login --no-include-email)   # deprecated in aws cli v2
+echo $USER  # Had to do export USER=AWS on command line
+
+aws ecr get-login-password --region $region | docker login --username $USER --password-stdin $ecrUrl
 docker push $ecrUrl/$tag:$version
 
 popd
