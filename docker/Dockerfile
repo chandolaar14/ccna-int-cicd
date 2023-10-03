@@ -29,6 +29,8 @@ RUN apk add --no-cache curl
 RUN apk add --no-cache openjdk8-jre
 RUN apk add --no-cache jsonnet --repository=http://dl-cdn.alpinelinux.org/alpine/edge/testing
 RUN apk add --no-cache docker
+RUN apk add --no-cache python2
+RUN npm config set python python2
 
 RUN mkdir /working && chown builder /working
 
