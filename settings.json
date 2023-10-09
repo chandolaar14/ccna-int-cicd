@@ -16,6 +16,6 @@
   "applicationId": "UID000015224773",
   "docker": {
     "tag": "int-build",
-    "version": "1.0.18"
+    "version": "1.0.19"
   }
 }

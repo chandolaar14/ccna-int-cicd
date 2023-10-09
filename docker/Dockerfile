@@ -1,4 +1,4 @@
-FROM alpine:3.15.0
+FROM alpine:3.18.0
 
 ARG NEW_USER_ID
 RUN adduser -S -u $NEW_USER_ID builder builder
@@ -12,7 +12,8 @@ RUN apk add --no-cache nodejs
 RUN apk add --no-cache npm
 RUN apk add --no-cache git
 RUN apk add --no-cache python3 py-pip && \
-    pip install awscli==1.16.263
+    pip uninstall awscli && \
+    pip3 install awscli==1.29.62
 RUN apk add --no-cache curl unzip && \ 
     git clone https://github.com/tfutils/tfenv.git ~/.tfenv && \
     ln -s ~/.tfenv/bin/* /usr/local/bin && \
@@ -29,8 +30,9 @@ RUN apk add --no-cache curl
 RUN apk add --no-cache openjdk8-jre
 RUN apk add --no-cache jsonnet --repository=http://dl-cdn.alpinelinux.org/alpine/edge/testing
 RUN apk add --no-cache docker
-RUN apk add --no-cache python2
-RUN npm config set python python2
+RUN apk add --upgrade gcc
+#RUN apk add --no-cache python2
+#RUN npm config set python python2
 
 RUN mkdir /working && chown builder /working
 
